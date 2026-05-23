@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local environment/config
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Data files kept locally
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Generated report/demo outputs
+report_assets/screenshots/*
+!report_assets/screenshots/.gitkeep
+report_assets/*.png
+report_assets/*.pdf
+
+# Logs and local database dumps
+*.log
+*.sql.gz
+*.dump
+
+# OS/editor files
+.DS_Store
+.idea/
+.vscode/
