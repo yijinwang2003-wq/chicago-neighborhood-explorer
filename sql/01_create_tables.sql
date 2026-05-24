@@ -1,3 +1,5 @@
+USE chicago_neighborhood_explorer;
+
 CREATE TABLE CommunityArea (
     community_id INT PRIMARY KEY,
     name VARCHAR(100) NOT NULL UNIQUE,
@@ -34,7 +36,7 @@ CREATE TABLE HousingDevelopment (
     source_record_key CHAR(64) NOT NULL UNIQUE,
     property_name VARCHAR(255) NOT NULL,
     address VARCHAR(255) NOT NULL,
-    property_type VARCHAR(100),
+    raw_property_type VARCHAR(100),
     reported_unit_count INT,
     contact_phone VARCHAR(30),
     latitude DECIMAL(10, 7),
@@ -44,6 +46,19 @@ CREATE TABLE HousingDevelopment (
     FOREIGN KEY (community_id) REFERENCES CommunityArea(community_id),
     FOREIGN KEY (company_id) REFERENCES ManagementCompany(company_id),
     CHECK (reported_unit_count IS NULL OR reported_unit_count >= 0)
+);
+
+CREATE TABLE HousingCategory (
+    category_id INT PRIMARY KEY AUTO_INCREMENT,
+    category_name VARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE DevelopmentCategory (
+    development_id INT,
+    category_id INT,
+    PRIMARY KEY (development_id, category_id),
+    FOREIGN KEY (development_id) REFERENCES HousingDevelopment(development_id),
+    FOREIGN KEY (category_id) REFERENCES HousingCategory(category_id)
 );
 
 CREATE TABLE CrimeRecord (
@@ -109,14 +124,4 @@ CREATE TABLE ServiceRequest (
     FOREIGN KEY (community_id) REFERENCES CommunityArea(community_id),
     CHECK (closed_date IS NULL OR closed_date >= created_date),
     CHECK (record_source = 'GUI_INPUT' OR source_sr_number IS NOT NULL)
-);
-
-CREATE TABLE Near_Stop (
-    development_id INT,
-    station_id INT,
-    distance_meters DECIMAL(10, 2) NOT NULL,
-    PRIMARY KEY (development_id, station_id),
-    FOREIGN KEY (development_id) REFERENCES HousingDevelopment(development_id),
-    FOREIGN KEY (station_id) REFERENCES CTARailStation(station_id),
-    CHECK (distance_meters BETWEEN 0 AND 1000)
 );

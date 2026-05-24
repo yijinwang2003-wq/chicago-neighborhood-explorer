@@ -1,3 +1,5 @@
+USE chicago_neighborhood_explorer;
+
 CREATE OR REPLACE VIEW vw_CrimeAggregation AS
 SELECT
     community_id,
