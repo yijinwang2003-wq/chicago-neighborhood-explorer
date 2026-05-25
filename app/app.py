@@ -13,6 +13,8 @@ import streamlit as st
 from config import QUERY_OPTIONS
 from db import get_connection
 from queries import (
+    get_community_areas,
+    insert_housing_unit,
     query_affordable_safe,
     query_housing_near_transit,
     query_transit_usage,
@@ -108,6 +110,108 @@ def show_database_status():
                     connection.close()
 
 
+def load_community_area_options():
+    """Load community areas from MySQL for the insert dropdown.
+
+    Returns:
+        list: Tuples in the format (community_id, community_area_name).
+
+    This helper keeps the database connection code out of the Streamlit form
+    itself. The form only needs a simple list of choices.
+    """
+
+    conn = None
+
+    try:
+        conn = get_connection()
+
+        # get_community_areas() already returns a pandas DataFrame with
+        # community_id and name columns.
+        community_areas = get_community_areas(conn)
+
+        # Convert the DataFrame rows into simple tuples. The ID is what goes
+        # into the database, while the name is what the user sees.
+        options = []
+        for _, row in community_areas.iterrows():
+            options.append((int(row["community_id"]), row["name"]))
+
+        return options
+    finally:
+        if conn is not None and conn.is_connected():
+            conn.close()
+
+
+def show_insert_housing_unit_section():
+    """Show a simple form for adding one affordable housing unit."""
+
+    st.markdown("---")
+    st.subheader("Insert Housing Unit")
+
+    try:
+        community_area_options = load_community_area_options()
+    except Exception as error:
+        st.error(f"Could not load community areas: {error}")
+        return
+
+    if not community_area_options:
+        st.error("No community areas were found in the database.")
+        return
+
+    with st.form("insert_housing_unit_form"):
+        # All requested fields use text inputs to keep the form simple and
+        # beginner-friendly. Numeric values are converted after submission.
+        unit_id = st.text_input("Unit ID")
+
+        selected_community_area = st.selectbox(
+            "Community area",
+            options=community_area_options,
+            format_func=lambda option: option[1],
+        )
+
+        property_name = st.text_input("Property name")
+        property_type = st.text_input("Property type")
+        units = st.text_input("Units")
+        address = st.text_input("Address")
+        management_company = st.text_input("Management company (optional)")
+
+        submitted = st.form_submit_button("Insert Housing Unit")
+
+    if submitted:
+        conn = None
+
+        try:
+            # Convert text input values into the integer types expected by the
+            # database insert function.
+            unit_id_value = int(unit_id)
+            units_value = int(units)
+            community_id = selected_community_area[0]
+
+            # Treat a blank optional field as NULL in the database.
+            if management_company.strip() == "":
+                management_company_value = None
+            else:
+                management_company_value = management_company
+
+            conn = get_connection()
+            insert_housing_unit(
+                conn,
+                unit_id=unit_id_value,
+                community_id=community_id,
+                property_name=property_name,
+                property_type=property_type,
+                units=units_value,
+                address=address,
+                management_company=management_company_value,
+            )
+
+            st.success("Housing unit inserted successfully.")
+        except Exception as error:
+            st.error(f"Insert failed: {error}")
+        finally:
+            if conn is not None and conn.is_connected():
+                conn.close()
+
+
 def main():
     """Render the Streamlit dashboard."""
 
@@ -160,6 +264,7 @@ def main():
         st.info("Select parameters, then click Run Query to see results.")
 
     show_database_status()
+    show_insert_housing_unit_section()
 
 
 if __name__ == "__main__":
