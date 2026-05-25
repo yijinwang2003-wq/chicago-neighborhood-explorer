@@ -144,7 +144,6 @@ def load_community_area_options():
 def show_insert_housing_unit_section():
     """Show a simple form for adding one affordable housing unit."""
 
-    st.markdown("---")
     st.subheader("Insert Housing Unit")
 
     try:
@@ -212,20 +211,8 @@ def show_insert_housing_unit_section():
                 conn.close()
 
 
-def main():
-    """Render the Streamlit dashboard."""
-
-    st.set_page_config(
-        page_title="Chicago Neighborhood Explorer",
-        page_icon="C",
-        layout="wide",
-    )
-
-    st.title("Chicago Neighborhood Explorer")
-    st.write(
-        "Welcome! Use this dashboard to explore Chicago neighborhoods by "
-        "housing, transit, crime, demographics, and service response patterns."
-    )
+def show_query_section():
+    """Show the query picker, parameter widgets, and results table."""
 
     st.sidebar.header("Query Controls")
 
@@ -263,8 +250,34 @@ def main():
     else:
         st.info("Select parameters, then click Run Query to see results.")
 
+
+def main():
+    """Render the Streamlit dashboard."""
+
+    st.set_page_config(
+        page_title="Chicago Neighborhood Explorer",
+        page_icon="C",
+        layout="wide",
+    )
+
+    st.title("Chicago Neighborhood Explorer")
+    st.write(
+        "Welcome! Use this dashboard to explore Chicago neighborhoods by "
+        "housing, transit, crime, demographics, and service response patterns."
+    )
+
+    st.sidebar.header("Navigation")
+    selected_page = st.sidebar.radio(
+        "Choose a page",
+        ["Run Queries", "Insert Housing Unit"],
+    )
+
+    if selected_page == "Run Queries":
+        show_query_section()
+    else:
+        show_insert_housing_unit_section()
+
     show_database_status()
-    show_insert_housing_unit_section()
 
 
 if __name__ == "__main__":
