@@ -1,0 +1,599 @@
+unit_id,community_id,management_company,property_name,property_type,units,address
+1,21,Leasing & Management Co. Inc.,Hairpin Lofts,Multifamily,25,3414 W. Diversey Ave.
+2,32,Willow Bridge,1000M,ARO,23,1000 S. Michigan Ave.
+3,22,North Clybourn Group,2556 Armtiage LLC,ARO,1,2556 W. Armitage Ave
+4,35,Woodlawn Comm. Dev. Corp.,South Park Plaza,Multifamily,134,2600 S. King Dr.
+5,28,The FLATS,The Rosie,ARO,7,1461 S. Blue Island Ave.
+6,3,Platform 4611,Platform 4611,ARO,5,4611 N. Broadway
+7,29,Lawndale Christian Residential Svcs.,Praise Apts.,Multifamily,11,1859 S. Pulaski Road
+8,39,UPA LLC,Cottage View Terrace,Multifamily,97,4829 S. Cootage Grove Ave.
+9,28,CHA,Loomis Court,Senior,68,1314 W. 15th St.
+10,6,33 Realty,Low-Line Commons,ARO,8,3431 N Ashland Ave
+11,60,Senior Lifestyle Corp.,Senior Suites of Bridgeport,Senior,85,2825 S. Halsted St.
+12,6,Habitat Company,Britton Bud Apts.,Senior,173,501 W. Surf St.
+13,21,Daniel Management Group,The Avondale Residences II,ARO,1,3153 N. Tripp Ave.
+14,6,3220 Lincoln LLC,3220 Lincoln,ARO,2,3220 N. Lincoln Ave.
+15,40,Assoc. of Chicago Day School,Urbanite Apartments,People with Disabilities,85,5441 S. Michigan Ave.
+16,23,Village Green Management Co.,Bloomingdale Apts.,Multifamily,48,1745 N. Keystone Ave.
+17,3,The FLATS,The Synagogue,ARO,4,5029 N. Kenmore Ave.
+18,42,Woodlawn Comm. Dev. Corp.,Butler Apts.,Senior,17,6146 S. Kenwood Ave.
+19,23,Bickerdike Apts.,Nelson Mandela Apts.,Multifamily,6,505 N. Troy St.
+20,14,East Lake Management & Development Corp.,Darul Amaan Senior Living,Senior,56,4814-58 N. Kedzie Ave.
+21,24,Hispanic Housing Dev. Corp.,Paseo Boricua Apts.,Multifamily,61,1154 N. Campbell St.
+22,44,Heartland Housing,Karibuni Place,Supportive Housing,72,8200 S. Ellis Ave.
+23,38,"East Lake Management Group, Inc.",Park Boulevard Tower/Grand Renaissance Apts.,Senior,24,4257 S. King Dr.
+24,27,Realty & Mortgage Co.,Homan Square Apartments Phase IV,Multifamily,108,908 S. Central Park Ave.
+25,6,"RRG Development, Inc.",Renaissance St. Luke Belmont,Senior,52,1501 W. Belmont Ave.
+26,40,St. Edmund's Redevelopment Corp.,St. Edmund's Oasis,Multifamily,27,6100-24 S. Prairie Ave.
+27,29,"East Lake Management Group, Inc.",Roosevelt Towers,Senior,104,3440 W. Roosevelt Road
+28,28,Willow Bridge,Arthur on Aberdeen,ARO,0,210 N. Aberdeen St.
+29,21,33 Realty,The Field's Lofts,ARO,12,4000 W. Diversey Ave.
+30,23,Bickerdike Apts.,Rosa Parks Apts.,Multifamily,27,541 N. Homan Ave.
+31,39,Heartland Housing,Jazz on the Boulevard (scattered sites),Multifamily,81,4657 S. Drexel Blvd
+32,22,33 Realty,Motif on Belden,ARO,10,2845 W. Belden Ave.
+33,66,Senior Lifestyle Corp.,Senior Suites of Marquette Village,Senior,93,7430 S. Rockwell St.
+34,24,Hispanic Housing Dev. Corp.,65th Infantry Boringueneers Apts.,Supportive/Veterans,48,1045 N. Sacramento Blvd.
+35,29,Interstate Realty Management Co.,Park Douglas,Multifamily,7,1262-1300 S. Washtenaw Ave.
+36,33,East Lake Management Co.,The Studios,Supportive Housing,96,1801 S. Wabash St.
+37,29,Interstate Realty Management Co.,Park Douglas,Multifamily,5,2707 W. 12th St.
+38,3,The FLATS,The Wilmore,ARO,7,4600 N. Kenmore Ave.
+39,29,Interstate Realty Management Co.,Park Douglas,Multifamily,17,2642-44 W. 12 th Pl
+40,31,The Resurrection Project,Casa Puebla,Multifamily,63,2014 S. Racine Ave.
+41,30,The Resurrection Project,Casa Tabasco,Multifamily,8,3515-17 W. 23rd St.
+42,25,Affordable Property Management Specialist,Rebecca Walker Complex,Multifamily,12,5565-71 W. Quincy Ave.
+43,22,Related Management Co. LP,Madison Renaissance Apts.,Multifamily,30,1816 N. St. Louis Ave.
+44,48,Pacific Management Inc.,Montclare Senior Residences of Calumet Heights,Senior,134,9401 S. Stony Island Ave.
+45,3,Preservation Housing Management LLC,Hazel Winthrop Apts.,Multifamily,6,4426 N. Magnolia Ave.
+46,29,Interstate Realty Management Co.,Park Douglas,Multifamily,10,1310-14 S. Washtenaw Ave.
+47,24,Tandem Inc.,Avenir,ARO,39,730 N. Milwuakee Ave.
+48,6,Silver Property Group,Patterson Green LLC,ARO,2,1118 W. Pattereson Ave.
+49,23,"La Casa Norte, Inc.",Solid Ground Supportive Housing Program,Supportive/Males 18-24yrs.,35,3507 W. North Ave.
+50,15,The Renaissance Cos.,The Kilpatrick Renaissance,Senior,98,4655 W. Burteau Ave.
+51,71,Catholic Charities Housing Devp.,St. Sabina Elder Village Apts.,Senior HUD 202,80,1222 W. 79th St.
+52,28,John Buck Cos.,The Venn,ARO,59,855 W. Madison St.
+53,7,Realty & Mortgage Co.,The Apartments at Lincoln Common,ARO,54,2345 N. Lincoln Ave.
+54,28,Interstate Realty Management Co.,Westhaven Park Phase IIA,Multifamily,92,2237 W. Maypole Ave.
+55,15,@properties,4812-15 W. Montrose Apts.,ARO,2,4812-15 W. Montrose Ave.
+56,24,Outlook Management,Seven 10 West,ARO,1,710 W. Grand Ave.
+57,5,Campell Street Asset Management Inc.,1911-21 W. Irving Park Rd.,ARO,2,1911-21 W. Irving Park Rd.
+58,23,Bickerdike Apts.,Rosa Parks Apts.,Multifamily,6,649 N. Sawyer Ave.
+59,35,"Urban Property Advisors, LLC",Park Boulevard IIA,Multifamily,80,3640 S. State St.
+60,26,Deborah's Place Ltd.,The Rebecca Johnson Apts.,Supportive Housing,52,2822 W. Jackson Blvd.
+61,23,Bickerdike Apts.,Nelson Mandela Apts.,Multifamily,6,3224 W. Ohio St.
+62,8,Willow Bridge,920northwells,ARO,32,920 N. Wells St.
+63,38,CMHDC/Progressive NFP/Kass Management,Progressive Square,Multifamily,107,4752 S. Wabash Ave.
+64,24,Bucktown Gateway,Bucktown Gateway,ARO,1,1667 N. Western Ave.
+65,23,LUCHA,Tierra Linda Apts.,Multifamily,3,1757 N. Drake Ave.
+66,16,Evergreen Real Estate Services LLC,Indepedence Apts.,Senior,14,4022 N. Elston Ave.
+67,45,Pacific Management Inc.,Montclare Senior Residences of Avalon Park,Senior,102,1200 E. 78th St.
+68,23,LUCHA,Tierra Linda Apts.,Multifamily,6,1749-51 N. Drake Ave.
+69,1,The CHA,Caroline Hedger Apts.,Senior,436,6400 N. Sheridan Road
+70,28,AIMCO,Newberry Park Apts.,Multifamily,124,1355 S. Blue Island Ave.
+71,37,"East Lake Management Group, Inc.",Fellowship Manor,Senior,100,5041 S. Princeton Ave.
+72,27,Deborah's Place,Deborah's Place III,Supportive Housing,90,2822 W. Jackson Blvd.
+73,38,"Metroplex, Inc.",Williard Square Apts.,Multifamily,100,4907 S. St. Lawrence Ave.
+74,6,33 Realty,Low-Line Commons,ARO,5,3421 N. Ashland Ave
+75,1,Preservation Housing Management LLC,Levy House,Senior,57,1221 W. Sherwin Ave.
+76,8,Realty & Mortgage Co.,The Mark Twain,SRO,148,111 W. Division St.
+77,23,Bickerdike Apts.,Rosa Parks Apts.,Multifamily,6,601 N. Drake Ave
+78,27,Realty & Mortgage Co.,Homan Square Apartments Phase VI,Multifamily,52,3609 W. Arthington St.
+79,1,Hispanic Housing Dev. Corp.,James Sneider Apts.,Senior,57,7450 N. Rogers Ave.
+80,7,Anixter Center Housing Services,Halsted Apts.,People with Disabilities,14,2537 N. Halsted St.
+81,29,Interstate Realty Management Co.,Park Douglas,Multifamily,29,1218-20 S. Washtenaw Ave.
+82,3,Leasing & Management Co. Inc.,Uptown Preservation Apts.,Multifamily,18,4431 N. Clifton Ave.
+83,28,Heartland Houisng Inc.,Harvest Commons,Supportive,89,1519 W. Warren Blvd.
+84,19,Daniel Management Group,Galewood Flats,ARO,1,2114 N. Nashville Ave.
+85,23,Bickerdike Apts.,La Estancia,Multifamily,9,3248 W. Division St.
+86,38,TLC Management Co.,Mayfair Apts.,Multifamily,67,4832 S. Vincennes Ave.
+87,25,Heartland Housing Inc.,Mayfield Apts.,Supportive Housing,39,148 N. Mayfield Ave.
+88,29,Interstate Realty Management Co.,Park Douglas,Multifamily,4,2652 W. 12th Pl
+89,33,Holsten Management Corp.,Hilliard Homes Phase II,Multifamily,176,2031 S. Clark St.
+90,11,Senior Lifestyle Corp.,Senior Suites of Jefferson Park,Senior,73,5400 N. Northwest Hwy.
+91,22,LUCHA,Tierra Linda Apts.,Multfamily,3,1858 N. Spaulding Ave.
+92,13,Elderly Housing Devp. & Operations Corp.,Edward M. Marx Apts.,Senior,180,5801 N. Pulaski Road
+93,38,Tri-Mart Management Co.,Geneva Gables,Multifamily,65,4420-24 S. Michigan Ave.
+94,24,LUCHA,Borinquen Bella Apts.,Multifamily,23,"1414,1451 N. Washtenaw Ave."
+95,2,Chicago Apartment Finders,"5822 North Western, LLC",ARO,2,5822 N. Western Ave.
+96,24,Hispanic Housing Dev. Corp.,North and Talman Family Apts.,Multifamily,30,2654 W. North Ave.
+97,4,Kass Management,The Westner,ARO,2,4618 N. Western Ave.
+98,41,Peak Campus,Vue53,ARO,27,1330 E. 53rd St.
+99,42,"Urban Property Advisors, LLC",65th Street Apts.,Multifamily,6,817 E. 64th St.
+100,14,"Metroplex, Inc.",Mayfair Commons,Senior,97,4444 W. Lawrence Ave.
+101,3,Mercy Housing,Malden Arms Apts.,Multifamily,41,4727 N. Malden St.
+102,4,CA Urban Living,2247 W. Lawrence Ave.,ARO,2,2247 W. Lawrence Ave.
+103,40,St. Edmund's Manor Ltd.,St. Edmund's Manor,Multifamily,24,5947 S. Indiana Ave.
+104,67,West Englewood Dev. Org.,Clara Temple Hampton Residence,Multifamily,71,1656 W. 63rd St.
+105,31,Ventus Holdings LLC,Blue Island,ARO,1,1907 S. Blue Island Ave.
+106,19,Senior Lifestyle Corp.,Senior Suites of Belmont-Cragin,Senior,86,6045 W. Grand Ave.
+107,29,Dickson Estates Apartments,Dicksons Estates Apts.,Multifamily,48,1129 S. Sacramento Ave.
+108,28,Aberdeen East,171 N. Aberdeen St.,ARO,6,171 N. Aberdeen St.
+109,23,LUCHA,Tierra Linda Apts.,Multifamily,6,1649-51 N. Drake Ave.
+110,6,Cagan Management Group,The Medallion,ARO,7,3121 N. Broadway
+111,29,Lawndale Christian Residential Svcs.,Renaissance Place Apts.,Multifamily,11,3128 W. Douglas Blvd.
+112,28,East Lake Management Co.,Jackson Square West End,Multifamily,115,2425 W. Adams St.
+113,3,Holsten Real Estate Dev. Corp.,Wilson Yard Senior Apts.,Senior,13,1032 W. Montrose Ave
+114,31,The Resurrection Project,Casa Chiapas,Multifamily,72,1712 W. 17th St.
+115,49,Mercy Housing,Roseland Village Grand-Family Apts.,Inter-generational,10,63 E. 104th St.
+116,24,Honore Properties,1038 N. Ashland,ARO,2,1038-40 N. Ashland Ave.
+117,28,Leasing & Management Co. Inc.,McCrory Senior Apts.,Senior,62,1637-59 W. Washington Blvd.
+118,3,Sarah's Circle,Sarah's House,Women's Supportive,10,4836 N. Sheridan Road
+119,15,Zidan Management Group,4015 Narragansett LLC,ARO,2,4015-23 N. Narragansett Ave.
+120,6,Draper and Kramer,Wrigleyville Lofts,ARO,8,949 W. Dakin St.
+121,29,Interstate Realty Management Co.,Park Doulglas,Multifamily,17,1345 S. Fairfield Ave.
+122,3,Leasing & Management Co. Inc.,Uptown Preservation Apts.,Multifamily,18,927 W. Wilson Ave.
+123,3,Malet Realty,Saxony Wilson,ARO,2,1630 W. Wilson Ave.
+124,73,Senior Lifestyle Corp.,Senior Suites of Washington Heights,Senior,82,848 W. 103rd St.
+125,30,The Resurrection Project,Casa Sor Juana,Multifamily,29,2700 S. Drake Ave.
+126,61,Senior Lifestyle Co.,Senior Suites of New City,Multifamily,115,4845 S. Western Blvd.
+127,29,Interstate Realty Management Co.,Park Douglas,Multifamily,1,1260 S. Fairfield Ave.
+128,23,Bickerdike Apts.,Harold Washington Unity Coop,Multifamily,12,3120-38 W. Ohio St.
+129,41,Bickerdike Apts.,5432-44 S. Woodlawn,ARO,10,5432 S. Woodlawn Ave.
+130,24,Centrum Partners,Centrum Wicker Park,ARO,6,1664 W. Division St.
+131,3,Willow Bridge,Solverre,ARO,8,4600 N. Marine Dr.
+132,6,DLG Management,927 W. Irving,ARO,1,927 W. Irving Park Rd.
+133,68,Pacific Management Inc.,Montclare JoAnn Thompson Senior Residences,Senior,102,6332 S Green St.
+134,19,Perlmark Realty Management,Belmont Place Apts.,Senior,110,4645 W. Belmont Ave.
+135,23,Volunteers of America Illinois,Hope Manor Apts.,Supportive/Veterans,50,3053 W. Franklin Blvd.
+136,42,The Thresholds,Dorchester Apts.,Multifamily,67,1410 E. 62nd St.
+137,3,33 Realty,Upshore Chapter,ARO,7,4555 N. Sheridan Road
+138,29,Holsten Management Corp.,Lawndale Restoration II Apts. (scattered sites),Multifamily,170,10 N. Hamlin Ave.
+139,3,"Metroplex, Inc.",Sunnyside Kenmore Apts.,Multifamily,83,847-49 W. Sunnyside Ave.
+140,19,Lester and Rosalie Anixter Center,Crystal Courts/Anixter Center,Senior,17,5038 W. Armitage Ave.
+141,55,Senior Lifestyle Corp.,Senior Suites of Hegewisch,Senior,116,13550 S. Avenue O
+142,4,DLG Management,The Convent,ARO,3,4927 N. Claremont Ave.
+143,23,Bickerdike Apts.,Nelson Mandela Apts.,Multifamily,6,3108 W. Franklin Blvd.
+144,19,Zitella Development,2917-39 N. Central,ARO,3,2917-39 N. Central Ave.
+145,49,Mercy Housing,Roseland Place Senior Apts.,Senior,59,10426 S. Michigan Ave.
+146,40,St. Edmund's Redevelopment Corp.,St. Edmund's Commons,Multifamily,54,110 E. 60th St.
+147,46,Interfaith Housing Corp.,Casa Kirk,Multifamily,29,3248 E. 92nd St.
+148,35,Westward 360,Unity Hall,ARO,2,3138-40  S. Indiana Ave.
+149,23,Bickerdike Apts.,Nelson Mandela Apts.,Multifamily,6,3500 W. Ohio St.
+150,71,"Urban Property Advisors, LLC",Auburn Commons,Senior,72,1626 W. 87th St.
+151,29,Lawndale Christian Residential Svcs.,Lazarus Apartments,Multifamily,26,1859 S. Pulaski Ave.
+152,33,Holsten Real Estate Dev. Corp.,Hilliard Homes Phase I,Multifamily,170,2030 S. State St.
+153,22,Bickerdike Apartments,Zapata Apts.,Multifamily,3,1955 N. St. Louis Ave.
+154,24,Fifield Co.,Luxe on Chicago,ARO,4,1838 W. Chicago Ave.
+155,71,East Lake Management & Development Corp.,Stone Terrace,Multifamily,56,8440 S. Parnell Ave.
+156,38,Paul G. Stewart Assoc.,Paul G. Stewart Phase III Tower,Multifamily,180,401 E. Bowen Ave.
+157,22,Wilmot Properties,1957 N.Fairfield/2701 W. Armitage,ARO,6,1957 N. Fairfiled Ave.
+158,5,"Metroplex, Inc.",North Center Senior Apts.,Senior,60,2324 W. Irving Park Road
+159,50,Triangle & Assoc.,Pullman Suites,Senior,60,15 E. 112th Place
+160,24,Fifield Cos.,Westerly Apts.,ARO,3,740 N. Aberdeen St.
+161,36,"Urban Property Advisors, LLC",Lakefront Phase II,Multifamily,6,4131 S. Lake Park Ave.
+162,23,Bickerdike Apts.,Harold Washington Unity Coop,Multifamily,8,636-38 N. Albany Ave.
+163,3,RL Accelerated,811 Uptown,ARO,22,811 W. Agatite Ave.
+164,31,The Resurrection Project,Casa Colima,Multifamily,3,1427 W. Cullerton St.
+165,42,"Urban Property Advisors, LLC",65th Street Apts.,Multifamily,15,6400 S. Maryland Ave.
+166,42,AIMCO,Renaissance Apts.,Multifamily,64,6200 S. University Ave.
+167,33,Senior Lifestyle Corp.,Senior Suites of Central Station,Senior,276,1400 S. Indiana Ave.
+168,33,Holsten Management Corp.,Hilliard Homes Phase II,Senior,151,30 W. Cermak Road
+169,36,"Urban Property Advisors, LLC",Lakefront Phase II,Multifamily,6,1120 E. Bowen Ave.
+170,54,Habitat Company,Eden Green Apts.,Multifamily,258,301 E. 132nd Pl
+171,18,The Brixen,2931-57 N. Harlem LLC,ARO,5,2931-57 N. Harlem Ave.
+172,28,Interstate Realty Management Co.,City Gardens,Multifamily,76,320 S. Maplewood Ave.
+173,33,Brookfield Properties,The Park at Central Station,Senior,91,1251 S. Michigan Ave.
+174,27,The Habitat Co.,East Park Apts.,Supportive Housing,152,3300 W. Maypole Ave.
+175,68,Volunteers of America Illinois,Hope Manor Village,Veterans,36,5900-6100 S. Green/Peoria/Sangamon
+176,10,Senior Lifestyle,Senior Suites of Norwood Park,Senior,84,5700 N. Harlem Ave.
+177,8,Mercy Housing Management Group,Schiff Residences,SRO/Supportive,96,1244 N. Clybourn Ave.
+178,22,Habitat Company,Renaissance West,Senior,41,2517 W. Fullerton Ave.
+179,1,CIG Management,Wayne Senior Housing,Senior,119,6928 N. Wayne Ave.
+180,27,East Lake Management & Development Corp.,Rockwell Gardens Phase IA & IIA,Multifamily,143,2653 W. Madison St.
+181,3,Zidan Management Group,Somerset Place Apts.,ARO,16,5009 N. Sheridan Road
+182,6,"RRG Development, Inc.",Renaissance St. Luke Greenview Place,Senior Supportive Living,97,1501 W. Melrose St.
+183,5,The FLATS,The Henry,ARO,4,1819 W. Montrose Ave.
+184,23,Bickerdike Apts.,Rosa Parks Apts.,Multifamily,12,526 N. St. Louis Ave.
+185,56,Perlmark Realty Management LLC,Midway Pointe Senior Living,Senior,85,5011 W. 47th St.
+186,49,NHS Redevelopment Corp.,Roseland Ridge Apts.,Multifamily,40,10513 S. Michigan Ave.
+187,42,Preservation Housing Management LLC,Trianon Lofts,Multifamily,12,803 E. 61st St.
+188,28,Related Management Co. LP,Roosevelt Square Phase I & II,Mutifamily,160,1346 W. Rolosevelt Road
+189,23,Bickerdike Apts.,Rosa Parks Apts.,Multifamily,6,521 N. St. Louis Ave.
+190,28,"East Lake Management Group, Inc.",Roosevelt Place,Senior,181,1401 W. Roosevelt Road
+191,6,Heartland Houing Inc.,Town Hall Apts.,Senior LGBTQ,79,3600 N. Halsted St.
+192,29,"AIDSCare, Inc.",Phoenix House,Supportive/HIV/AIDS,32,1251 S. Sawyer Ave.
+193,35,"Urban Property Advisors, LLC",Park Boulevard IIA,Multifamily,36,17 W. 36th St.
+194,42,Woodlawn East Community,Eddie Mae & Alex Johnson Apts.,Multifamily,84,6230 S. Dorchester Ave.
+195,67,Interfaith Housing Corp.,New West Englewood Homes,Multifamily,12,2109 W. 63rd St.
+196,27,Holsten Management Corp.,Switching Station Lofts,Multifamily/Artists,24,15 S. Homan Ave.
+197,3,The Apartment Source,The Fifth,ARO,3,4453 N Hazel
+198,29,Interstate Realty Management Co.,Park Douglas,Multifamily,29,1317-19 S. Fairfield Ave.
+199,35,"Urban Property Advisors, LLC",Park Boulevard IIB,Multifamily,72,3700 S. Dearborn St.
+200,5,KR Developments,HW,ARO,5,2405 W. Hutchinson St.
+201,42,"Urban Property Advisors, LLC",65th Street Apts.,Multifamily,18,6522 S. Ingleside Ave.
+202,8,AMLI Realty Co.,AMLI 808,ARO,32,808 N. Wells St.
+203,38,The Community Builders Inc.,Cornerstone Apts.,Multifamily,5,636 E. 50th St.
+204,39,The Habitat Co.,Drexel Preservation,Multifamily,155,837 E. 47th St.
+205,27,Realty & Mortgage Co.,Harvest Homes,Multifamily,36,3512-46 W. Fifth Ave.
+206,28,Related Management,Taylor Street Apts.,Multifamily,29,1342 W. Taylor St.
+207,36,East Lake Management,Drexel Street Properties,Multifamily,61,848 E. 40th St.
+208,36,"Urban Property Advisors, LLC",Lakefront Phase II,Multifamily,3,4143 S. Lake Park Ave.
+209,38,Interstate Realty Management Co.,Legends South - Coleman Place,Multifamily,118,223 E. 41st St.
+210,18,Pacific Management Inc.,The Montclare Senior Residences,Senior,7,6650 W. Belden Ave.
+211,22,LUCHA,Tierra Linda Apts.,Multifamily,3,3572 W. Palmer St.
+212,42,Preservation Housing Management LLC,Woodlawn Station,Multifamily,55,6253 S. Cottage Grove Ave.
+213,38,Interstate Realty Management Co.,Legends South - Mahalia Place,Multifamily,110,116 E. 43rd St.
+214,58,H&J Real Estate Management,El Zócalo,Multifamily,30,3246 W. 47th St.
+215,29,Preservation Housing Management LLC,Greenwood Park Apts.,Multifamily,122,4700 S. Greenwood Ave.
+216,3,Leasing & Management Co. Inc.,Uptown Preservation Apts.,Multifamily,160,900 W. Windsor Ave.
+217,8,Interstate Realty Management Co.,The Marshall Apts.,SRO,90,1232 N. LaSalle Drive
+218,25,Waller Street L.P.,Mt. Vernon Manor,Senior,60,30 N. Waller Ave.
+219,8,Holsten Management Corp.,Parkside-I Rental,Multifamily,116,545 W. Division St.
+220,25,Congress Commons LLC,Congress Commons LLC,Multifamily,161,504 S. Laramie Ave.
+221,24,rmk Management,Wicker Park Connection,ARO,20,1640 W. Division St.
+222,25,"Prairie Management & Development, Inc.",Elois McCoy Village Apts.,Senior HUD 202,60,4650 W. Van Buren St.
+223,73,Realty & Mortgage Co.,Brainerd Senior Center,Senior,60,8915 S. Loomis St.
+224,40,St. Edmund's Village LP,St. Edmund's Village,Multifamily,31,6253 S. Michigan Ave.
+225,68,Voluinteers of America Illinois,Hope Manor II Apts.,Supportive/Veterans,73,6002 S. Halsted St.
+226,50,Mercy Housing,Pullman Wheelworks,Multifamily,210,901 E. 104th St.
+227,36,"Urban Property Advisors, LLC",Lakefront Phase II,Multifamily,3,1128 E. Bowen Ave.
+228,3,Preservation Housing Management LLC,Hazel Winthrop Apts.,Multifamily,6,912 W. Montrose Ave.
+229,49,Mercy Housing Lakefront,Wentworth Commons,Supportive Housing,50,11045 S. Wentworth Ave.
+230,6,rmk Management,Viridian on Sheridan,ARO,2,734 W. Sheridan Rd.
+231,32,Village Green Management Co.,Randolph Tower City Apts. (studios only),Multifamily,16,188 W. Randolph St.
+232,24,Wicker Park Apartments Inc.,East Village Lofts,ARO,1,1100 N. Ashland Ave.
+233,24,Dream Town Realty,1938 W. North Ave.,ARO,2,1938 W. North Ave.
+234,14,Senior Lifestyle Corp.,Senior Suites of Ravenswood Manor,Senior,80,2800 W. Montrose Ave.
+235,71,"HSR Property Services, LLC",Naomi & Sylvester Smith Senior Living Ctr.,Senior HUD 202,59,8031 S. Halsted St.
+236,28,Marquette Management Inc.,Atrio,ARO,52,1922 W. Ogden Ave.
+237,38,"HSR Property Services, LLC",Margaret Ford Manor Independent Living,Senior HUD 202,63,4500 S. Wabash Ave.
+238,6,Thresholds,Buffet Place,Supportive,51,3208 N. Shefield Ave.
+239,3,Quest Chicago,4420 N. Sheridan Apts.,ARO,1,4420 N. Sheridan Road
+240,15,Life Care Services,Clarendale Six Corners,ARO,11,4715 W. Irving Park Road
+241,31,Stellar Performance Inc.,Woodwork Lofts,ARO,10,1414-48 W. 21st St.
+242,46,Alexian Brothers Bonaventure House,Bettendorf Place SRO,Supportive Housing,23,8425 S. Saginaw Ave.
+243,22,Bickerdike Apartments,Zapata Apts.,Multifamily,12,3503 W. Armitage Ave
+244,4,CA Urban Living,SB 1900 W Lawrence Ave LLC,ARO,6,1900 W. Lawrence Ave.
+245,77,Hunter Properties,Winthrop Apts.,Multifamily,108,6214 N. Winthrop Ave.
+246,43,Interfaith Housing Corp.,Jeffrey Towers Apts.,Multifamily,136,7020 S. Jeffrey Blvd.
+247,23,LUCHA,Humboldt Park Residences,Supportive Housing,69,1152 N. Christiana Ave.
+248,3,Peak Properties,LALux Apts.,ARO,4,4747 N. Ashland Ave.
+249,8,Holsten Real Estate Dev. Corp.,Parkside of Old Town Phase IIA,Multifamily,111,544 W. Oak St.
+250,35,"Urban Property Advisors, LLC",Park Boulevard IIB,Mutifamily,12,15 W. 37th St.
+251,36,"Urban Property Advisors, LLC",Lakefront Phase II,Multifamily,3,1137 E. Bowen Ave.
+252,2,Devon NJ LLC,Joy Plaza Residences,ARO,3,6411 N. Rockwell Ave.
+253,35,"Urban Property Advisors, LLC",Park Boulevard IIB,Multifamily,12,3633 S. State St.
+254,13,Elderly Housing Devp. & Operations Corp.,J. Michael Fitzgerald Apts.,Senior,63,5801 N. Pulaski Road
+255,7,Peak Properties,The Ludlow,ARO,25,2032 N. Clybourn Ave.
+256,19,Preservation Housing Management LLC,Archer Avenue Senior Residences,Senior,55,2928 S. Archer Ave.
+257,24,Hispanic Housing Dev. Corp.,Boulevard Court Family Housing,Multifamily,52,1723-33 N. Humboldt Blvd.
+258,36,"Urban Property Advisors, LLC",Lakefront Phase II,Multifamily,3,1125 E. Bowen Ave.
+259,2,Perlmark Realty Management,Lincoln Village Senior Apts.,Senior,99,6057 N. Lincoln Ave.
+260,29,A Safe Haven Foundation,Roosevelt Road Veterans Hsg.,Veterans,90,2908 W. Roosevelt Road
+261,18,Pathway Senior Living,Victory Centre of Galewood,Senior Supportive Living,78,2370 N. Newcastle Ave.
+262,6,Newport Realty,SOBE Apts.,ARO,1,3208 N. Southport Ave.
+263,24,"RRG Development, Inc.",Wicker Park Renaissance,Supportive Housing,102,1527-31 N. Wicker Park Ave.
+264,36,"The Community Builders, Inc.",Oakwood Shores Terrace,Senior,148,3755 S. Cottage Grove Ave.
+265,13,Elderly Housing Devp. & Operations Corp.,North Park Village Apts.,Senior,137,5801 N. Pulaski Road
+266,43,Senior Lifestyle Corp.,Senior Suites of Rainbow Beach,Senior,87,2804 E. 77th Place
+267,36,"Urban Property Advisors, LLC",Lakefront Phase II,Multifamily,6,4130 S. Oakenwald Ave.
+268,8,Omni Group,Atrium at Old Town Park,ARO,41,300 W. Hill St.
+269,8,Onni Group,Onni Atrium Devp.,ARO,43,202 W. Hill St.
+270,28,Marquette Management,The Thompson,ARO,32,150 N. Ashland Ave.
+271,1,CIG Management,Morse Senior Apts.,Senior,44,1528 W. Morse Ave.
+272,68,The Thresholds,Rowan Trees Apts.,Supportive Housing,167,500 W. Englewood Ave.
+273,22,Trilogy Residential Management,Noca Blu,ARO,14,2328-48 N. California Ave.
+274,36,"Urban Property Advisors, LLC",Lakefront Phase II,Multifamily,3,4116 S. Oakenwald Ave.
+275,61,The Resurrection Project,Casa Hidalgo,Multifamily,10,4600 S. Wood St.
+276,31,The Resurrection Project,Casa Guanajuato,Multifamily,6,1313 W. 19th St.
+277,28,Honore Properties,1218 W Lexington St,ARO,3,1218 W. Lexington St.
+278,6,33 Realty,The Bel,ARO,4,941 W. Belmont Ave.
+279,22,Metropolitan Housing Dev. Corp.,Pennycuff Apts.,Multifamily,41,2031 N. Milwaukee Ave.
+280,53,Source Works Development,Hancock House,Supportive Housing,90,12045 S. Emerald Ave.
+281,38,The Community Builders Inc.,Cornerstone Apts.,Multifamily,21,4950 S. Langley Ave.
+282,29,Interstate Realty Management Co.,Park Douglas,Multifamily,5,2639 W. 12th Pl
+283,38,Peoples Co-Op Management Service,Bronzeville Senior Apts.,Senior,97,460 E. 41st St.
+284,6,The Inverbrass Funds LLC,Broadway Apts.,ARO,2,3120-22 N. Broadway
+285,25,Affordable Property Management Specialist,Rebecca Walker Complex,Multifamily,40,126 S. Central Ave.
+286,31,The Resurrection Project,Casa Maravilla,Senior,5,2021 S. Morgan St.
+287,28,Sage West Loop,1050 Van Buren,ARO,16,1050 W. Van Buren St.
+288,22,Laramar Group,2400 Cortland,ARO,2,2404-14 W. Cortland St.
+289,28,Tandem Property Management,1125 Van Buren LLC,ARO,5,1125 W. Van Buren St.
+290,35,"Urban Property Advisors, LLC",Park Boulevard IIA,Multifamily,6,3604 S. State St.
+291,22,LUCHA,Tierra Linda Apts.,Multifamily,3,1802 N. Sawyer Ave.
+292,23,LUCHA,Madres Unidas (scattered sites),Multifamily,80,3541 W. North Ave.
+293,43,"Urban Property Advisors, LLC",Rainbow's End,Senior,84,7538 S. Kingston Ave.
+294,40,Harriet Tubman NFP,"Brand New Beginnings, Inc.",People with Disabilities,25,5801 S. Michigan Ave.
+295,25,Senior Lifestyle Corp.,Senior Suites of Austin,Senior,84,335 N. Menard Ave.
+296,22,2293NMA LLC,MiCA,ARO,22,2733 W. Belden Ave.
+297,54,"DRE, Inc.",Concordia Apts.,Senior,75,13037 S. Daniel Dr.
+298,8,Holsten Real Estate Dev. Corp.,Parkside of Old Town IIB,Multfamily,12,1151 N. Cleveland Ave.
+299,32,Greystar,Imprint Lofts,ARO,7,739 S. Clark St.
+300,29,Interfaith Housing Corp.,Sankofa House,Supportive/Youth/Kinship Families,32,4041 W. Roosevelt Road
+301,28,White Oak Realty Partners,Milieu Apts.,ARO,7,205 S. Peoria St.
+302,53,Catholic Charities Housing Devp.,All Saints Senior Residence,Senior,42,11701 S. State St.
+303,3,Mercy Housing,850 Eastwood,Multifamily,69,850 W. Eastwood Ave.
+304,24,Kass Management,Homer Townhomes,ARO,5,1623 N. Talman Ave.
+305,38,Bonheur Realty Services Corp.,Hearts United I-The Langston (scattered sites),Multifamily,116,722-46 E. Bowen Ave.
+306,8,Cagan Management Group,The Leo,ARO,4,741 N Wells
+307,29,Dickson Estates Apartments,Dicksons Estates Apts.,Multifamily,42,1129 S. Sacramento Ave.
+308,15,RL Accelerated,Six Corners Lofts,ARO,6,4714 W Irving Park
+309,3,"Park, Inc.",Magnolia Court Apts.,Multifamily,60,4878 N. Magnolia Ave.
+310,23,Bickerdike Apts.,Nelson Mandela Apts.,Multifamily,6,3118 W. Franklin Blvd.
+311,24,CIM Group,1237 N. Milwaukee Ave.Owner LLC,ARO,6,1241 N. Milwaukee Ave.
+312,38,The Community Builders Inc.,Cornerstone Apts.,Multifamily,8,611 E. 50th St.
+313,36,The Community Builders Inc.,"Oakwood Shrs 1A, 1B, 2A, 2B1 (scattered sites)",Multifamily,534,3859 S. Vincennes Ave.
+314,31,The Resurrection Project,Casa San Luis,Multifamily,12,1646-50 S. Throop St.
+315,42,Preservation Housing Management LLC,The Grant at Woodlawn Pk Phase II,Multifamily,33,6129 S. Cottage Grove Ave.
+316,41,"DRE, Inc.",Hyde Park Apts.,Multifamily,36,5330 S. Harper Ave.
+317,40,St. Edmund's Redevelopment Corp.,St. Edmund's Corners,Senior HUD 202,53,5556 S. Michigan Ave.
+318,41,5228 S Blacstone LLC,5228 S Blackstone,ARO,2,1424-28 E. 53rd St.
+319,67,S W Management,Wheeler House,Senior,89,1450 W. 69th St.
+320,8,Willow Bridge,868northwells,ARO,32,868 N. Wells St.
+321,38,Bonheur Realty Services Corp.,Hearts United III-The Leontyne (scattered sites),Multifamily,53,4340-2 S. Champlain St.
+322,29,Interstate Realty Management Co.,Park Douglas,Multifamily,31,1224 S. Washtenaw Ave.
+323,22,Golub Realty Services,The Western,ARO,1,1920 N. Milwaukee Ave.
+324,61,"Universal Management Service, Inc.",West Haven Homes,Senior,110,850 W. Garfield Blvd.
+325,19,Hispanic Housing Dev. Corp.,Cicero & George Elderly Apts.,Senior,70,4800 W. George St.
+326,29,Interstate Realty Management Co.,Park Douglas,Multifamily,4,1313-15 S. Fairfiled Ave.
+327,23,Hispanic Housing Dev. Corp.,North & Pulaski Senior Housing,Senior,72,3939-59 W. North Ave.
+328,66,Greater Southwest Dev. Corp.,Churchview Supportive Assisted Living,Senior,86,2626 W. 63rd St.
+329,22,LUCHA,Tierra Linda Apts.,Multifamily,3,1808-10 N. Kedzie Ave.
+330,8,Holsten Real Estate Dev. Corp.,North Town Village I & II,Multifamily,112,1311 N. Halsted St.
+331,22,Realty & Mortgage Co.,Lorington Apts.,Multifamily,54,3126 W.Palmer Blvd.
+332,4,TLC Management Co. (chicagorentals.com),Ravenswood Terrace,ARO,15,1801-15 W. Argyle St.
+333,23,Nikola Kosoric,3639wiowast,ARO,4,3639 W Iowa St.
+334,35,"Urban Property Advisors, LLC",Park Boulevard IIB,Multifamily,12,10 W. 37th St.
+335,1,"Ross Financial Services, Inc.",Clark Estes Apts.,Multifamily,54,1763 W. Estes Ave.
+336,6,33 Management LLC,Panorama,ARO,5,3300 N. Clark St.
+337,31,The Resurrection Project,Casa Monterrey,Multifamily,4,967 W. 19th St.
+338,35,"Urban Property Advisors, LLC",Park Boulevard IB,Multifamily,54,3506 S. State St.
+339,31,The Resurrection Project,Casa Tabasco,Multifamily,45,2014 S. Racine Ave.
+340,46,Pathway Senior Living,Victory Center of South Chicago,Senior Supportive Living,112,3251 E. 92nd St.
+341,3,Preservation Housing Management LLC,Hazel Winthrop Apts.,Multifamily,12,852-54 W. Sunnyside Ave./4509 N. Hazel St.
+342,33,Holsten Real Estate Dev. Corp.,Hilliard Homes Phase I,Senior,151,30 W. Cermak Road
+343,27,Realty & Mortgage Co.,Homan Square Apartments Phase V,Multifamily,42,3607 W. Polk St.
+344,22,Bickerdike Apts.,Lucy Gonzalez Parsons Apts.,Multifamily,100,2614 N. Emmett St.
+345,24,Honore Properties,1447 N. Superior Holding,ARO,2,1447 W. Superior St.
+346,28,One Six Six Chicago,One Six Six,ARO,22,166 N. Aberdeen St.
+347,35,Pioneer Gardens Senior Housing,Pioneer Gardens Supportive Living,Senior,120,3800 S. King Dr.
+348,36,"Urban Property Advisors, LLC",Lakefront Phase II,Multifamily,6,1113 E. Bowen Ave.
+349,42,Preservation Housing Management LLC,The Burnham at Woodlawn Park,Senior,65,6134 S. Cottage Grove Ave.
+350,1,H.O.M.E.,Nathalie Salmon House,Inter-generational,54,7320 N. Sheridan Road
+351,40,Michigan Plaza LP,Michigan Plaza (St. Edmund's Plaza),Multifamily,230,5701 S. Michigan Ave.
+352,23,LUCHA,LUCHA Affordable Units,Senior,69,3541 W. North Ave.
+353,2,Evergreen Real Estate Services LLC,Northtown Apts.,Senior,14,6800 N. Western Ave.
+354,28,Marquette Management Inc.,The Mason,ARO,26,180 N. Ada St.
+355,40,St. Edmund's Redevelopment Corp.,St. Edmund's Oasis,Multifamily,14,6143-51 S. Indiana Ave.
+356,43,Related Management Co. LP,Highlands Tudor Manor,Multifamily,18,7018 S. Cregier Ave.
+357,24,Cagan Management Group,Trailhead Apartments,ARO,16,1744 N Western Ave
+358,8,Interstate Realty Management Co.,Clybourn 1200,Multifamily,52,1200 N. Clybourn Ave.
+359,40,"Leasing and Management Co., Inc.",Prairie Park Apts.,Multifamily,56,5610 S. Calumet Ave.
+360,6,Optima Real Estate,Optima Lakeview,ARO,11,3460 N. Broadway
+361,3,The FLATS,The Draper,ARO,35,5050 N. Broadway
+362,3,Heartland Houisng Inc.,Leland Apts.,Multifamily,137,1207 W. Leland Ave.
+363,23,Bickerdike Apts.,Harold Washington Unity Coop,Multifamily,15,619-27 N. Kedzie Ave.
+364,33,Fernwood Property Management,Aspire,ARO,10,2111 S Wabash
+365,6,Kass Management,621 W Belmont LLC,ARO,2,621 W. Belmont St.
+366,19,"Resident Management Services, Inc.",Diversey Manor,Senior,98,5525 W. Diversey Ave.
+367,61,BMA Management Ltd.,New City Supportive Living,Senior,101,4707 S. Marshfield Ave.
+368,28,Sterling Bay,The Dylan,ARO,28,160 N. Morgan St.
+369,43,Leasing & Management Co. Inc.,Dorchester Art + Housing Collaborative,Artists & Families,32,1450 E. 70th St.
+370,56,MVAH Partners,Cicero Senior Lofts,Senior,56,4835 S. Cicero Ave.
+371,8,Group Fox,Axis Apartments and Lofts,ARO,3,441 E Erie
+372,22,Bickerdike Apartments,Zapata Apts.,Multifamily,100,3230 W. Armitage Ave
+373,44,Senior Lifestyle Corp.,Senior Suites of Chatham,Senior,90,8300 S. Cottage Grove Ave.
+374,67,Interfaith Housing Corp.,Clara's Village,Multifamily,52,2115 W. 63rd St
+375,29,The Resurrection Project,Resurrection Homes,Multifamily,2,1910 S. Albany Ave.
+376,40,Brand New Beginnings Inc.,Harriett Tubman Apts.,Multifamily,65,5751-59 S. Michigan Ave.
+377,24,LUCHA,Borinquen Bella Apts.,Multifamily,24,"1318,1456 N. Rockwell Ave."
+378,25,The Thresholds,Menard Apartments,Supportive Housing,57,334 N. Menard Ave.
+379,22,Hispanic Housing Dev. Corp.,Rev. Daniel Alvarez Apts.,Multifamily,96,2451-57 N. Sacramento Ave.
+380,31,The Resurrection Project,Casa Guerrero,Multifamily,52,963 W Cullerton St.
+381,22,Bickerdike Apartments,Zapata Apts.,Multifamily,30,3734 W. Cortland St.
+382,38,The Community Builders Inc.,Shops & Lofts at 47,Multifamily,72,747 E. 47th St.
+383,29,Lawndale Christian Residential Svcs.,Tabernacle Apts.,Senior,126,3836 W. Cermak Road
+384,33,"Draper and Kramer, Inc.",Aspire Residences,ARO,10,2111 S. Wabash Ave.
+385,36,"Urban Property Advisors, LLC",Lakefront Phase II,Multifamily,81,1060 E. 41st St.
+386,38,Paul G. Stewart Assoc.,Paul G. Stewart Phase V,Multifamily,20,400 E. 41st St.
+387,26,Habitat Company,Fannie Emanuel Apts.,Senior,181,3916 W. Washington Blvd.
+388,29,Interstate Realty Management Co.,Park Douglas,Multifamily,5,1255 S. Fairfield Ave.
+389,21,Full Circle Management,Milwaukee Ave. Apts.,Supportive Housing,32,3060 N. Milwaukee Ave.
+390,4,Northside Properties Inc.,4646 Damen Apts.,ARO,2,4646 N. Damen Ave.
+391,22,LUCHA,Tierra Linda Apts.,Multifamily,6,1834-36 N. Sawyer Ave.
+392,23,Bickerdike Apts.,Nelson Mandela Apts.,Multifamily,6,3554 W. Ohio St.
+393,16,G&A Management,Senior Residence at Kedzie,Senior,51,4054 N. Kedzie Ave.
+394,22,TMG Management,Fullerton Properties LLC,ARO,2,2535 W. Fullerton Ave.
+395,49,Pathway Senior Living,Victory Center of Roseland,Senior,81,10450 S. Michigan Ave.
+396,38,Mercy Housing,Rosenwald Courts Apts.,Multifamily,239,4642 S. Michigan Ave.
+397,42,Wolcott Real Property LLC,Woodlawn-Michigan Development,Multifamily,33,6446 S. Kenwood Ave.
+398,24,Hispanic Housing Dev. Corp.,North & Talman Phase III,Multifamily,18,2656 W. North Ave.
+399,29,Realty & Mortgage Co.,Independence Apts.,Supportive Housing,58,927 S. Independence Blvd.
+400,6,606 Realty,The Mode,ARO,2,3462 N. Lincoln Ave.
+401,24,Lipe Property Co.,Nevele 22 Apts.,ARO,19,1122 W. Chicago Ave.
+402,28,ZRS Management,Union West,ARO,9,939 W. Washington Blvd.
+403,23,Senior Lifestyle Corp.,Senior Suites of West Humboldt Park,Senior,88,3656 W. Huron St.
+404,3,Honore Properties,4533 N Clark St.,ARO,2,4533 N. Clark St.
+405,23,Heartland Housing Inc.,Los Vecinos,Multifamily,62,4250 W. North Ave.
+406,42,Preservation Housing Management LLC,The Grant at Woodlawn Pk Phase I,Multifamily,67,6227-29 S. Cottage Grove Ave.
+407,40,St. Edmund's Redevelopment Corp.,St. Edmund's Meadows,Multifamily,56,6100 S. Michigan Ave.
+408,23,Bickerdike Apts.,La Estancia,Multifamily,18,3220 W. Division St.
+409,8,Holsten Real Estate Dev. Corp.,The Midwest/Carroll Park Apts.,Supportive Housing,40,1333 N. Kingsbury St.
+410,25,Affordable Property Management Specialist,Rebecca Walker Complex,Multifamily,12,223-9 S. Central Ave.
+411,40,St. Edmund's Redevelopment Corp.,St. Edmund's Oasis,Multifamily,5,215 E. 61st St.
+412,3,Peak Properties,Harmony Apartments,ARO,6,4513 N. Clark St.
+413,22,LUCHA,Tierra Linda Apts.,Multifamily,3,1929 N. Drake Ave.
+414,18,The Brixen,2815-19 N. Natoma,ARO,2,2815-19 N. Natoma Ave.
+415,41,Mac Properties,City Hyde Park,ARO,36,5105 S. Harper Ave.
+416,8,Common Living Inc.,The 808,ARO,20,808 N. Cleveland Ave.
+417,38,Interstate Realty Management Co.,Legends South - Gwendolyn Place,Multifamily,71,4333 S. Michigan Ave.
+418,3,Mercy Housing,Harold Washington Apts.,Supportive Housing,100,4946 N. Sheridan Road
+419,28,Cagan Management Group,The Jax,ARO,33,1220 W. Jackson Blvd.
+420,53,5T Management,West Pullman School Senior Housing,Senior,60,11941 S. Parnell Ave.
+421,23,Bickerdike Apts.,Nelson Mandela Apts.,Multifamily,6,3145 W. Franklin Blvd.
+422,22,LUCHA,Tierra Linda Apts.,Multifamily,3,1822 N. Sawyer Ave.
+423,24,M. Fishman & Co.,1611 West Division,ARO,10,1611 W. Division St.
+424,29,Interstate Realty Management Co.,Park Douglas,Multifamily,7,1254-56 S. Fairfiled Ave.
+425,24,Nevelle 22,Nevele 22 Apts.,ARO,19,1122 W. Chicago Ave.
+426,23,Bickerdike Apts.,Nuestro Hogar,Multifamily,16,3653-57 W. Wabansia Ave.
+427,28,St. Andrew's Court LP,St. Andrew's Court,Multifamily,15,50 N. Hoyne Ave.
+428,68,Yale Building LLP,Yale Building,Senior,140,6565 S. Yale Ave.
+429,27,Sergio & Banks Real Estate,2824 Van Buren,ARO,6,2824 W. Van Buren St.
+430,18,NOAH Properties,Harlem & Wrightwood,ARO,2,2601-19 N. Harlem Ave.
+431,22,@properties,1955 Richmond Place,ARO,3,1955 N. Richmond St.
+432,3,Preservation Housing Management LLC,Hazel Winthrop Apts.,Multifamily,6,4813 N. Winthrop Ave.
+433,40,St. Edmund's Redevelopment Corp.,St. Edmund's Oasis,Multifamily,12,300-10 E. 61st St.
+434,31,The Resurrection Project,Casa Morelos,Multifamily,4,2015 S. Morgan St.
+435,23,Bickerdike Apts.,Harold Washington Unity Coop,Multifamily,4,718-20 N. Troy St.
+436,68,Mercy Housing,Englewood Apts.,Supportive Housing,45,901 W. 63rd Street
+437,73,Full Circle Management,Brainerd Park Apts.,Supportive Housing,4,8920 S. Loomis St.
+438,25,"New Moms, Inc.",Home for New Moms,Supportive/Teenage Moms,40,5327 W. Chicago Ave.
+439,38,Michaels Development Co.,4400 Grove Apts.,Multifamily,38,4400 S. Cottage Grove Ave.
+440,1,DLG Management,1730 W. Greenleaf,ARO,3,1730 W. Greenleaf Ave.
+441,66,Greater Southwest Dev. Corp.,Lawn Terrace Apts.,Senior,102,3214 W. 63rd Pl
+442,42,WECAN,WECAN,Multifamily,117,6450 S. Stony Island Ave.
+443,6,Base 3 Management,The Aurea,ARO,5,3821 N. Ashland Ave.
+444,27,Village Green Management Co.,Ike Sims Village,Multifamily,200,3333 W. Maypole Ave.
+445,17,Senior Lifestyle Corp.,Autumn Green at Wright Campus,Senior,129,4239 N. Oak Park Ave.
+446,24,Hispanic Housing Dev. Corp.,North & Talman Elderly Apts.,Senior,24,1600 N. Talman Ave.
+447,29,Lawndale Christian Residential Svcs.,Dr. King Apts.,Multifamily,45,1550 S. Hamlin Ave.
+448,7,Hispanic Housing Dev. Corp.,Lathrop Elderly Apts.,Senior,92,2717 N. Leavitt St.
+449,27,BMA Management Ltd.,Heritage Woods of Chicago,Senior,113,2800 W. Fulton St.
+450,24,1645 W LeMoyne,1645 W. LeMoyne,ARO,2,1645 W. LeMoyne St.
+451,35,Pioneer Affordable Housing Preservation,Pioneer Village Apts.,Senior,152,340 E. 38th St.
+452,8,Lakshmi Capital Management,Than Tower,ARO,21,343 W. Schiller St.
+453,3,The FLATS,The Sally,ARO,8,1135 W. Winona St.
+454,36,The Community Builders,Oakwood Shores Senior Apts.,Multifamily,76,3750 S. Cottage Grove Ave.
+455,38,Interstate Realty Management Co.,Legends South - Savoy Square,Multifamily,220,4448 S. State St.
+456,27,Realty & Mortgage Co.,Homan Square Apartments Phase I,Multifamily,50,750 S. Homan Ave.
+457,23,Bickerdike Apts.,Harold Washington Unity Coop,Multifamily,43,3100-36 W. Huron St.
+458,70,Ludwig and Company,Wrightwood Senior Apts.,Senior,85,2815 W. 79th St.
+459,27,East Lake Management & Development Corp.,Harrison Court Apts.,Multifamily,123,2910 W. Harrison St.
+460,34,"Prairie Management & Development, Inc.",Archer Courts Apts.,Multifamily,147,2242 S. Princeton Ave.
+461,40,Interfaith Housing Corp.,Coppin House,Supportive/Kinship Families,28,325-43 E. 55th Place
+462,68,Evergreen Real Estate LLC,Branch of Hope Apts.,Supportive Housing,99,5628-30 S. Halsted St.
+463,23,G&A Management,Spaulding Apartments,Multifamily,111,1750 N. Spaulding Ave.
+464,53,Source Works Management,Kennedy Jordan Manor,Senior,70,825 W. 118th St.
+465,29,Interstate Realty Management Co.,Park Douglas,Multifamily,1,1256-60 S. Washtenaw Ave.
+466,51,Catholic Charities,Porta Coeli Residence,Senior,86,2260 E. 99th St.
+467,28,Greystar,Flora,ARO,74,1114 W. Carroll Ave.
+468,2,Eastgate Village Senior Corp.,G & A Senior Residences at Ravenswood,Senior,89,1818 W. Peterson Ave.
+469,38,Interstate Realty Management Co.,Legends South - Hansberry Square,Multifamily,181,4034 S. State St.
+470,35,D Properties,Lake Park LLC,ARO,1,243 E. 31st St.
+471,38,"East Lake Management Group, Inc.",Washington Park SRO,Supportive Housing,96,5000 S. Indiana Ave.
+472,38,Indiana Manor Townhomes,Indiana Manor Town Homes,Multifamily,87,4427-33 S. Indiana Ave.
+473,23,Bickerdike Apts.,Nelson Mandela Apts.,Multifamily,6,614 N. Spaulding Ave.
+474,28,Lincoln Property Co.,Fulbrix Apts.,ARO,75,160 N. Elizabeth St.
+475,42,Holsten Real Estate Dev. Corp.,Strand Hotel,Multifamily,63,6321 S. Cottage Grove Ave.
+476,8,Interstate Realty Management Co.,Carling Hotel,Supportive,80,1512 N. LaSalle St.
+477,31,The Resurrection Project,Casa Oaxaca,Multifamily,25,1714 W. 19th St.
+478,22,Tandem Property Management,2501 Armitage,ARO,8,2501 W. Armitage Ave.
+479,25,NHS Redevelopment Corp.,Pine Central,Multifamily,78,557 N. Pine Ave.
+480,40,The Renaissance Collaborative,TRC Senior Village I,Senior,35,346 E. 53rd St.
+481,6,Glascott Realty,Clarkview Apts.,ARO,2,3228 N. Clark St.
+482,22,Spaces Real Estate,Logan Apts.,ARO,22,2480-2522 N. Milwaukee Ave.
+483,71,"HSR Property Services, LLC",Veteran's New Beginnings,Supportive/Veterans,54,8132-44 S. Racine Ave.
+484,28,Baker-Simmons Apartments,Near West Side Apts.,Multifamily,84,216 S. Hoyne Ave.
+485,23,Bickerdike Apts.,Nelson Mandela Apts.,Multifamily,6,526 N. Troy St.
+486,22,Bickerdike Apts.,La Paz Place,Multifamily,44,3600-08 W. Shakespeare Ave.
+487,36,"Urban Property Advisors, LLC",Lakefront Phase II,Multifamily,3,1106 E. 42nd Pl
+488,33,Eastgate Village Partners LP,G&A Senior Residences at Eastgate Village,Senior,127,300 E. 26th Street
+489,29,Pacific Management Inc.,Montclare Sr. Residences SLF of Lawndale,65+/Supportive,120,4339-47 W. 18th Pl
+490,35,Capital Realty Group,Davis Apts.,Multifamily,81,3632 S. Indiana Ave.
+491,19,Senior Lifestyle Corp.,Senior Suites of Kelvyn Park,Senior,85,2715 N. Cicero Ave.
+492,29,Interstate Realty Management Co.,Park Douglas,Multifamily,5,1302-06 S. Washtenaw Ave.
+493,26,Holsten Management Corp.,Midwest Apts.,Senior,276,6 N. Hamlin Blvd.
+494,28,Interstate Realty Management Co.,Westhaven Park Phase IIC,Multifamily,42,1939 W. Lake St.
+495,71,Senior Lifestyle Corp.,Senior Suites of Auburn-Gresham,Senior,85,1050 W. 79th St.
+496,1,The Thresholds,Wayne Street Apts.,Supportive Housing,297,6808 N. Wayne Ave.
+497,68,"Universal Management Service, Inc.",Antioch Homes II,Multifamily,69,301 W. Marquette Road
+498,68,Evergreen Real Estate Services,Sangamon Terrace,Senior,34,6415 S. Sangamon St.
+499,43,Senior Lifestyle Corp.,Senior Suites of South Shore,Senior,55,2355 E. 67th St.
+500,18,The Brixen,6602-22 W. Diversey,ARO,3,6602-22 W. Diversey Ave.
+501,3,Mercy Housing Management Group,Carlton Terrace,Supportive,70,4626 N. Magnolia Ave.
+502,38,Revere Properties,Bronzeville Artists Lofts,Artist Live/Work Space,16,436 E. 47th St.
+503,62,"Leasing and Management Co., Inc.",Park Place Family Apts.,Multifamily,78,3630 W. 51st St.
+504,30,The Resurrection Project,Resurrection Homes,Multifamily,2,2243 S. Central Park Ave.
+505,29,Interstate Realty Management Co.,Park Douglas,Multifamily,31,1303-15 S. Fairfield Ave.
+506,24,Fulton Grace,1801westgrand,ARO,3,1801 W. Grand Ave.
+507,8,Lincoln Property Co.,North & Vine,ARO,7,633 W. North Ave.
+508,6,Seminary Properties,3647 N. Southport,ARO,1,3647 N. Southport Ave.
+509,77,Spaces Real Estate,Edge on Broadway,Multifamily,6,6149 N. Broadway
+510,23,Bickerdike Apts.,Nuestro Hogar,Multifamily,15,4101 W. Kamerling
+511,22,Peak Properties,1879 N. Milwaukee,Multifamily,2,1879 N. Milwaukee Ave.
+512,22,Kiferbaum Devp. Group,1962-66 N. Milwaukee Ave. Apts.,ARO,4,1962-66 N. Milwaukee Ave.
+513,2,West Ridge Senior Corp.,West Ridge Senior Apts.,Senior,117,6142 N. California Ave.
+514,31,The Resurrection Project,Casa Queretaro,Multifamily,45,1614 S. Damen Ave.
+515,28,Sterling Bay,The Elizabeth,ARO,70,225 N Elizabeth St
+516,77,TMG Management,Glenlake LLC,ARO,3,1544 W. Glenlake Ave.
+517,38,Bonheur Realty Services Corp.,Hearts United II-The Quincy (scattered sites),Multifamily,81,701-27 E. 43rd St.
+518,33,Mercy Housing Management Group,South Loop Apts.,SRO,207,1521 S. Wabash Ave.
+519,8,UP Holdings,Evergreen Towers II,Senior,101,1343 N. Cleveland Ave.
+520,15,Mega Realty Inc.,Jefferson Park Residences,ARO,4,4758 N. Laramie Ave.
+521,8,Holsten Real Estate Dev. Corp.,Parkside of Old Town IIB,Multifamily,94,459 W. Division St.
+522,40,"Leasing and Management Co., Inc.",KLEO Art Residences,Artist/Family,49,5504 S. Michigan Ave.
+523,3,"Metroplex, Inc.",Sunnyside Kenmore Apts.,Multifamily,13,4130 N. Kenmore Ave.
+524,24,CA Urban Living,713 Milwaukee,ARO,1,713 N. Milwaukee Ave.
+525,77,Holsten Management Corp.,Bell Shore Apts.,Multifamily,105,1062 W. Bryn Mawr Ave.
+526,23,Childrens Place Association,West Humboldt Place,Disabled/Homeless,13,3543 W. Chicago Ave.
+527,35,The Community Builders,508 S. Pershing at Oakwood Shores,Multifamily,36,508 E. Pershing Road
+528,21,Daniel Management Group,The Avondale Residences II,ARO,1,4181 W. Belmont Ave.
+529,23,"La Casa Norte, Inc.",Pierce House,Supportive Housing,25,3533 W. North Ave.
+530,24,Bickerdike Redevelopment Corp.,La Estancia,Multifamily,59,2753 W. Division St.
+531,31,The Resurrection Project,Resurrection Homes,Multifamily,5,2124 W. 19th St.
+532,8,Fulton Grace Realty,847 N. Larabee,ARO,1,847 N. Larabee St.
+533,27,Bonheur Realty Services Corp.,Liberty Square Apts.,Multifamily,66,705-23 S. Independence Ave.
+534,28,The FLATS,The Duncan,ARO,52,1515 W. Monroe St.
+535,23,Interfaith Housing Corp.,Sanctuary Place,Supportive Housing,84,642 N. Kedzie Ave.
+536,24,Scheck Investments LLC,1447 N. Washtenaw,ARO,3,1447 N. Washtenaw Ave.
+537,35,"Urban Property Advisors, LLC",Pershing Court/Park Boulevard IA,Multifamily,80,3845 S. State St.
+538,38,The Community Builders Inc.,Cornerstone Apts.,Multifamily,7,633 E. 50th St.
+539,28,Interstate Realty Management Co.,Westhaven Park Phase IIB,Multifamily,176,110 N. Wood St.
+540,23,Bickerdike Apts.,Harold Washington Unity Coop,Multifamily,5,647-49 N. Troy St.
+541,29,Interstate Realty Management Co.,Park Douglas,Multifamily,10,1220 S. Talman Ave.
+542,21,Wilmot Properties,2823 W. Belmont Ave.,ARO,5,2823 W. Belmont Ave.
+543,29,Lawndale Christian Residential Svcs.,Fountain View Apts.,Multifamily,32,3718 W. Douglas Blvd.
+544,65,Senior Lifestyle Corp.,Senior Suites of Midway Village,Seniors,89,6800 S. Keating Ave.
+545,7,RL Accelerated,Southport Lofts,ARO,1,2065 N. Southport Ave.
+546,36,Standard Communities,Lake Park Crescent,Multifamily,112,1061 E. 41st Place
+547,25,"Prairie Management & Development, Inc.",Enola A. Dew Senior Apts.,Senior HUD 202,60,4623 W. Gladys Ave.
+548,5,Related Midwest,Lathrop Phase I,Multifamily,91,2000 W. Diversey Ave.
+549,63,Senior Lifestyle Corp.,Senior Suites of Gage Park,Senior,59,3244 W. 59th St.
+550,22,Peak Properties,L Logan,ARO,12,2201-31 N. Milwaukee Ave.
+551,4,Rent Great,Lawrence,ARO,6,2150 W. Lawrence Ave.
+552,3,Interfaith Housing Corp.,Ruth Shriman House,Senior,231,4040 N. Sheridan Road
+553,29,Safeway I.C. Management Inc.,Keeler Roosevelt Apts.,Multifamily,26,4200-10 W. Roosevelt Road
+554,77,Habitat Company,Pomeroy Apts.,Senior,198,5650 N. Kenmore Ave.
+555,8,Greystar,Xavier Chicago,ARO,24,625 W. Division St.
+556,77,33 Management LLC,Anderson Point,ARO,16,5700 N. Ashland Ave.
+557,36,"Urban Property Advisors, LLC",Lakefront Phase II,Multifamily,6,1140 E. 42nd Pl
+558,28,"City Experts, Inc.",2329 W Monroe,ARO,8,2329 W. Monroe St.
+559,23,Bickerdike Apts.,Nelson Mandela Apts.,Multifamily,6,3525 W. Ohio St.
+560,42,"Urban Property Advisors, LLC",65th Street Apts.,Multifamily,42,6600 S. Greenwood Ave.
+561,24,The Oasis of Bucktown LLC,The Oasis of Bucktown,ARO,9,1700-14 N. Western Ave.
+562,49,Mercy Housing,Holland Apartments,Supportive Housing,40,240 W. 107th Place
+563,22,33 Realty,St. Paul Western Lofts,ARO,3,1741 N. Western Ave.
+564,36,"Urban Property Advisors, LLC",Lakefront Phase II,Multifamily,3,1110 E. Bowen Ave.
+565,22,LUCHA,Tierra Linda Apts.,Multifamily,3,1812 N. Drake Ave.
+566,23,Bickerdike Apts.,Rosa Parks Apts.,Multifamily,16,3341 W. Ohio St.
+567,24,Wicker Park Apartments Inc.,945 Western,ARO,2,945 N. Western Ave.
+568,23,Bickerdike Apts.,Nelson Mandela Apts.,Multifamily,6,607 N. Sawyer Ave.
+569,6,Quad Realty Group,913 School Apts.,ARO,1,913 W. School St.
+570,23,Bickerdike Apts.,Rosa Parks Apts.,Multifamily,15,532 N. Trumbull Ave.
+571,77,Heartland Housing,Hollywood House Apts.,Senior,93,5700 N. Sheridan Road
+572,1,The Habitat Co.,The Concord at Sheridan,Multifamily,57,6438 N. Sheridan Road
+573,38,"Metroplex, Inc.",Evans Langley,Senior,60,727 E. 50th Pl
+574,38,Peoples Co-Op Management Service,Bronzeville Family Apts.,Multifamily,60,400 E. 41st St.
+575,3,Hayes Properties Inc.,4801 N. Ravenswood Ave.,ARO,4,4801 N. Ravenswood Ave.
+576,33,Greystar,1400 S Wabash,ARO,8,1400 S. Wabash Ave.
+577,68,"HSR Property Services, LLC",Victoria Jennings Residences,People with Disabilities,57,624 W. 61st St.
+578,3,The FLATS,The Winnie,ARO,8,4740 N. Winthrop Ave.
+579,28,Interfaith Housing Corp.,Lake Street Studios,Supportive,61,727 W. Lake St.
+580,23,Bickerdike Apts.,Nelson Mandela Apts.,Multifamily,3,528 N. Troy St.
+581,24,LUCHA,Tierra Linda Apts.,Multifamily,3,1421 N. Artesian Ave.
+582,9,Eagle National Management,Devon 7240 W,ARO,1,7240 W Devon Ave
+583,3,The Habitat Co.,Kenmore Senior Housing,Senior,98,5040 N. Kenmore Ave.
+584,35,"Urban Property Advisors, LLC",Park Boulevard IIA,Multifamily,6,3612 S. State St.
+585,32,Magellan Property Management,Millie on Michigan,ARO,7,300 N. Michigan Ave.
+586,66,Greater Southwest Dev. Corp.,Churchview Manor Independent Living,Senior,60,2626 W. 63rd St.
+587,40,St. Edmund's Redevelopment Corp.,St. Edmund's Tower Annex,Senior,34,6151 S. Michigan Ave.
+588,69,Leasing & Management Co. Inc.,Dorchester Art + Housing Collaborative,Artist Housing,32,1450 E. 70th St.
+589,23,Bickerdike Apts.,Rosa Parks Apts.,Multifamily,6,3215 W. Huron St.
+590,38,The Community Builders Inc.,Cornerstone Apts.,Multifamily,24,731 E. 50th Pl
+591,22,Anixter Center,Crystal Courts/Anixter Center,People with Disabilities,17,1122 N. California Ave.
+592,3,Sarah's Circle,Sarah's on Sheridan,Supportive Housing,38,1005 W. Leland Ave.
+593,3,Honore Properties,The Ainslie,ARO,5,4914 N. Clark St.
+594,42,"Urban Property Advisors, LLC",65th Street Apts.,Multifamily,6,848-58 E. 65th St.
+595,56,Senior Lifestyle Corp.,Senior Suites of Garfield Ridge,Senior,87,5839 S. Harlem Ave.
+596,69,"East Lake Management Group, Inc.",Englewood Gardens,Multifamily,24,6956 S. Vincennes Ave.
+597,23,Bickerdike Apts.,Nelson Mandela Apts.,Multifamily,6,3114 W. Franklin Blvd.
+598,3,Mercy Housing,Major Jenkins Apts.,Supportive Housing,96,5012 N. Winthrop Ave.
