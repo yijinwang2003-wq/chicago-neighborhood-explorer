@@ -1,0 +1,68 @@
+## community_count
+community_count
+77
+
+## ward_count
+ward_count
+50
+
+## profile_count
+profile_count
+77
+
+## neighborhood_profile_view_count
+profile_view_count
+77
+
+## community_to_multiple_wards
+community_id,ward_count
+24,7
+28,7
+15,6
+19,6
+30,6
+61,6
+66,6
+71,6
+6,5
+16,5
+
+## ward_to_multiple_communities
+ward_id,community_count
+8,10
+3,9
+20,9
+28,9
+39,8
+4,7
+9,7
+10,7
+11,7
+14,7
+
+## station_mapping_summary
+station_count,stations_outside_chicago_scope
+144,20
+
+## ridership_duplicate_check
+station_id,month_beginning,row_count
+(no rows)
+
+## service_request_sources
+record_source,row_count
+OPEN_DATA,1885931
+
+## table_counts
+table_name,row_count
+census_profiles,77
+community_area_ward_overlap,258
+community_areas,77
+crime_records,237274
+cta_lines,8
+cta_rail_stations,144
+housing_developments,596
+management_companies,236
+rail_ridership_monthly,1728
+serves,191
+service_requests,1885931
+wards,50

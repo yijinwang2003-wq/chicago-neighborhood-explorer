@@ -21,6 +21,7 @@ data/raw/*
 data/processed/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
+teammate-work/
 
 # Generated report/demo outputs
 report_assets/screenshots/*
