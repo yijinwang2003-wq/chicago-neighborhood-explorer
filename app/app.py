@@ -157,9 +157,6 @@ def show_insert_service_request_section():
         return
 
     with st.form("insert_service_request_form"):
-        # This form matches the demo insert in sql/04_demo_queries.sql:
-        # source_sr_number is NULL, created_date is NOW(), closed_date is NULL,
-        # and record_source is set inside queries.py to 'GUI_INPUT'.
         request_type = st.text_input("Request type", value="Street Light Out")
 
         selected_community_area = st.selectbox(
@@ -168,8 +165,6 @@ def show_insert_service_request_section():
             format_func=lambda option: option[1],
         )
 
-        street_address = st.text_input("Street address", value="5801 S Ellis Ave")
-        zip_code = st.text_input("ZIP code", value="60637")
         status = st.text_input("Status", value="Open")
 
         submitted = st.form_submit_button("Insert Service Request")
@@ -180,24 +175,11 @@ def show_insert_service_request_section():
         try:
             community_id = selected_community_area[0]
 
-            # Blank optional text fields should become NULL in MySQL.
-            if street_address.strip() == "":
-                street_address_value = None
-            else:
-                street_address_value = street_address
-
-            if zip_code.strip() == "":
-                zip_code_value = None
-            else:
-                zip_code_value = zip_code
-
             conn = get_connection()
             insert_service_request(
                 conn,
                 community_id=community_id,
                 request_type=request_type,
-                street_address=street_address_value,
-                zip_code=zip_code_value,
                 status=status,
             )
 
@@ -242,7 +224,7 @@ def show_query_section():
                 results = execute_query(query_key, params)
 
             st.markdown("### Results")
-            st.dataframe(results, use_container_width=True)
+            st.dataframe(results, width="stretch")
         except Exception as error:
             st.error(f"Query failed: {error}")
     else:
