@@ -15,11 +15,11 @@ QUERY_OPTIONS = {
     },
     "q2_housing_near_transit": {
         "label": "Q2 Housing Near Transit",
-        "description": "Find affordable housing developments within a selected distance of CTA rail stations.",
+        "description": "Find affordable housing developments in community areas that have CTA rail stations.",
     },
     "q3_transit_usage": {
         "label": "Q3 Transit Usage",
-        "description": "Compare 2025 transit usage by neighborhood.",
+        "description": "Compare 2025 CTA rail average ridership by neighborhood.",
     },
     "q5_high_demand_efficient": {
         "label": "Q5 High Demand + Efficient",
@@ -35,7 +35,7 @@ QUERY_OPTIONS = {
     },
     "q8_transit_popularity": {
         "label": "Q8 Transit Popularity",
-        "description": "Rank 2025 transit popularity.",
+        "description": "Rank 2025 CTA rail station popularity.",
     },
     "q9_service_delays": {
         "label": "Q9 Service Delays",
