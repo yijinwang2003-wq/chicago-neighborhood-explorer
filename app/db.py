@@ -19,7 +19,7 @@ def get_connection():
         MYSQL_PORT      default: 3306
         MYSQL_USER      default: root
         MYSQL_PASSWORD  default: empty string
-        MYSQL_DATABASE  default: chicago_neighborhood_explorer
+        MYSQL_DATABASE  default: chicago_neighborhood
 
     You can place these values in a local .env file while developing.
     """
