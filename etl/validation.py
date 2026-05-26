@@ -11,8 +11,8 @@ from pathlib import Path
 import mysql.connector
 
 
-DEFAULT_DATABASE = "chicago_neighborhood_explorer"
-DEFAULT_PASSWORD = os.getenv("MYSQL_PASSWORD", "YOUR_PASSWORD")
+DEFAULT_DATABASE = "chicago_neighborhood"
+DEFAULT_PASSWORD = os.getenv("MYSQL_PASSWORD", "")
 
 CHECKS = [
     (
