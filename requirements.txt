@@ -2,3 +2,6 @@ streamlit
 mysql-connector-python
 pandas
 python-dotenv
+requests
+geopandas
+shapely
