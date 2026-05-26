@@ -58,7 +58,13 @@ def build_parameter_widgets(query_key):
         )
 
     elif query_key == "q2_housing_near_transit":
-        st.info("This dataset uses shared community area as the transit-access proxy.")
+        params["max_distance_meters"] = st.slider(
+            "Maximum station distance (meters)",
+            min_value=100,
+            max_value=2000,
+            value=800,
+            step=100,
+        )
         params["top_n"] = st.slider(
             "Maximum rows to show",
             min_value=10,
@@ -98,7 +104,7 @@ def build_parameter_widgets(query_key):
 
     elif query_key == "q8_transit_popularity":
         params["top_n"] = st.slider(
-            "Number of stations to show",
+            "Number of neighborhoods to show",
             min_value=5,
             max_value=77,
             value=20,
