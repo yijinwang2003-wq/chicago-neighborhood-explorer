@@ -14,7 +14,7 @@ from config import QUERY_OPTIONS
 from db import get_connection
 from queries import (
     get_community_areas,
-    insert_housing_unit,
+    insert_service_request,
     query_affordable_safe,
     query_housing_near_transit,
     query_transit_usage,
@@ -26,7 +26,7 @@ from queries import (
     query_demographics_vs_crime,
     query_neighborhood_ranking,
     query_housing_availability,
-    query_peak_transit_days,
+    query_ward_overlap,
 )
 from widgets import build_parameter_widgets
 
@@ -47,7 +47,7 @@ QUERY_FUNCTIONS = {
     "q10_demographics_vs_crime": query_demographics_vs_crime,
     "q11_neighborhood_ranking": query_neighborhood_ranking,
     "q12_housing_availability": query_housing_availability,
-    "q14_peak_transit_days": query_peak_transit_days,
+    "q14_ward_overlap": query_ward_overlap,
 }
 
 
@@ -76,7 +76,7 @@ def execute_query(query_key, params):
 
         # Dispatch to the selected query function. The **params syntax expands
         # the widget dictionary into named function arguments, for example:
-        # {"year": 2024, "top_n": 20} becomes year=2024, top_n=20.
+        # {"year": 2025, "top_n": 20} becomes year=2025, top_n=20.
         results = QUERY_FUNCTIONS[query_key](conn, **params)
         return results
     finally:
@@ -111,7 +111,7 @@ def show_database_status():
 
 
 def load_community_area_options():
-    """Load community areas from MySQL for the insert dropdown.
+    """Load community areas from MySQL for the service request dropdown.
 
     Returns:
         list: Tuples in the format (community_id, community_area_name).
@@ -141,10 +141,10 @@ def load_community_area_options():
             conn.close()
 
 
-def show_insert_housing_unit_section():
-    """Show a simple form for adding one affordable housing unit."""
+def show_insert_service_request_section():
+    """Show a simple form for adding one 311 service request."""
 
-    st.subheader("Insert Housing Unit")
+    st.subheader("Insert Service Request")
 
     try:
         community_area_options = load_community_area_options()
@@ -156,10 +156,11 @@ def show_insert_housing_unit_section():
         st.error("No community areas were found in the database.")
         return
 
-    with st.form("insert_housing_unit_form"):
-        # All requested fields use text inputs to keep the form simple and
-        # beginner-friendly. Numeric values are converted after submission.
-        unit_id = st.text_input("Unit ID")
+    with st.form("insert_service_request_form"):
+        # This form matches the demo insert in sql/04_demo_queries.sql:
+        # source_sr_number is NULL, created_date is NOW(), closed_date is NULL,
+        # and record_source is set inside queries.py to 'GUI_INPUT'.
+        request_type = st.text_input("Request type", value="Street Light Out")
 
         selected_community_area = st.selectbox(
             "Community area",
@@ -167,43 +168,40 @@ def show_insert_housing_unit_section():
             format_func=lambda option: option[1],
         )
 
-        property_name = st.text_input("Property name")
-        property_type = st.text_input("Property type")
-        units = st.text_input("Units")
-        address = st.text_input("Address")
-        management_company = st.text_input("Management company (optional)")
+        street_address = st.text_input("Street address", value="5801 S Ellis Ave")
+        zip_code = st.text_input("ZIP code", value="60637")
+        status = st.text_input("Status", value="Open")
 
-        submitted = st.form_submit_button("Insert Housing Unit")
+        submitted = st.form_submit_button("Insert Service Request")
 
     if submitted:
         conn = None
 
         try:
-            # Convert text input values into the integer types expected by the
-            # database insert function.
-            unit_id_value = int(unit_id)
-            units_value = int(units)
             community_id = selected_community_area[0]
 
-            # Treat a blank optional field as NULL in the database.
-            if management_company.strip() == "":
-                management_company_value = None
+            # Blank optional text fields should become NULL in MySQL.
+            if street_address.strip() == "":
+                street_address_value = None
             else:
-                management_company_value = management_company
+                street_address_value = street_address
+
+            if zip_code.strip() == "":
+                zip_code_value = None
+            else:
+                zip_code_value = zip_code
 
             conn = get_connection()
-            insert_housing_unit(
+            insert_service_request(
                 conn,
-                unit_id=unit_id_value,
                 community_id=community_id,
-                property_name=property_name,
-                property_type=property_type,
-                units=units_value,
-                address=address,
-                management_company=management_company_value,
+                request_type=request_type,
+                street_address=street_address_value,
+                zip_code=zip_code_value,
+                status=status,
             )
 
-            st.success("Housing unit inserted successfully.")
+            st.success("Service request inserted successfully.")
         except Exception as error:
             st.error(f"Insert failed: {error}")
         finally:
@@ -269,13 +267,13 @@ def main():
     st.sidebar.header("Navigation")
     selected_page = st.sidebar.radio(
         "Choose a page",
-        ["Run Queries", "Insert Housing Unit"],
+        ["Run Queries", "Insert Service Request"],
     )
 
     if selected_page == "Run Queries":
         show_query_section()
     else:
-        show_insert_housing_unit_section()
+        show_insert_service_request_section()
 
     show_database_status()
 

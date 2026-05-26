@@ -7,16 +7,7 @@ query labels, query descriptions, and fixed dropdown options.
 
 # The dashboard uses the same year choices in several queries.
 YEARS = list(range(2020, 2027))
-DEFAULT_YEAR_INDEX = YEARS.index(2024)
-
-
-# User-friendly day names from the app, mapped to the compact codes used by
-# the CTA ridership data and future SQL query function.
-DAY_TYPE_OPTIONS = {
-    "Weekday": "W",
-    "Saturday": "A",
-    "Sunday/Holiday": "U",
-}
+DEFAULT_YEAR_INDEX = YEARS.index(2025)
 
 
 # Each query has a stable internal key, a user-facing label, and a short
@@ -33,7 +24,7 @@ QUERY_OPTIONS = {
     },
     "q3_transit_usage": {
         "label": "Q3 Transit Usage",
-        "description": "Compare transit usage by selected year and day type.",
+        "description": "Compare transit usage by selected year.",
     },
     "q5_high_demand_efficient": {
         "label": "Q5 High Demand + Efficient",
@@ -67,8 +58,8 @@ QUERY_OPTIONS = {
         "label": "Q12 Housing Availability",
         "description": "Summarize affordable housing availability.",
     },
-    "q14_peak_transit_days": {
-        "label": "Q14 Peak Transit Days",
-        "description": "Find peak transit days for a selected year.",
+    "q14_ward_overlap": {
+        "label": "Q14 Ward Overlap",
+        "description": "Show which community areas overlap with a selected ward.",
     },
 }

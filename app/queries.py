@@ -370,8 +370,8 @@ def query_housing_availability(conn):
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-#  Query 14 — Ward Overlap Analysis  (replaces old Peak Transit Days)
-#  *** Uses wards + community_area_ward_overlap — the 2nd M:N table ***
+#  Query 14 — Ward Overlap Analysis
+#  Uses wards + community_area_ward_overlap + vw_ward_community_profile
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 def query_ward_overlap(conn, ward_id: int = 27):
@@ -382,23 +382,26 @@ def query_ward_overlap(conn, ward_id: int = 27):
     This query uses the second M:N relationship in our schema:
     wards <-> community_area_ward_overlap <-> community_areas
 
-    Uses: vw_ward_community_profile (which joins wards,
-          community_area_ward_overlap, community_areas,
-          vw_neighborhood_profile)
+    Uses: wards, community_area_ward_overlap, vw_ward_community_profile
     """
     sql = """
-        SELECT ward_id,
-               community_id,
-               community_name,
-               ROUND(overlap_sq_miles, 4)                              AS overlap_sq_miles,
-               ROUND(pct_of_ward, 2)                                   AS pct_of_ward,
-               ROUND(pct_of_community_area, 2)                         AS pct_of_community_area,
-               crime_incidents_per_1000_population_estimate_2025       AS crime_rate,
-               housing_cost_burden_30plus_pct                          AS cost_burden_pct,
-               avg_closed_311_response_hours_2025                      AS avg_311_hours
-        FROM   vw_ward_community_profile
-        WHERE  ward_id = %s
-        ORDER BY pct_of_ward DESC, community_name
+        SELECT w.ward_id,
+               o.community_id,
+               v.community_name,
+               ROUND(o.overlap_sq_miles, 4)                         AS overlap_sq_miles,
+               ROUND(o.pct_of_ward, 2)                              AS pct_of_ward,
+               ROUND(o.pct_of_community_area, 2)                    AS pct_of_community_area,
+               v.crime_incidents_per_1000_population_estimate_2025  AS crime_rate,
+               v.housing_cost_burden_30plus_pct                     AS cost_burden_pct,
+               v.avg_closed_311_response_hours_2025                 AS avg_311_hours
+        FROM   wards w
+        JOIN   community_area_ward_overlap o
+               ON o.ward_id = w.ward_id
+        JOIN   vw_ward_community_profile v
+               ON v.ward_id = o.ward_id
+              AND v.community_id = o.community_id
+        WHERE  w.ward_id = %s
+        ORDER BY o.pct_of_ward DESC, v.community_name
     """
     return pd.read_sql(sql, conn, params=(ward_id,))
 

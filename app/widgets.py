@@ -6,7 +6,30 @@ Streamlit inputs and return the selected values in a plain Python dictionary.
 
 import streamlit as st
 
-from config import DAY_TYPE_OPTIONS, DEFAULT_YEAR_INDEX, YEARS
+from config import DEFAULT_YEAR_INDEX, YEARS
+from db import get_connection
+from queries import get_wards
+
+
+def load_ward_options():
+    """Load ward IDs from the database for the Q14 dropdown."""
+
+    conn = None
+
+    try:
+        conn = get_connection()
+
+        # get_wards() returns a pandas DataFrame with one ward_id column.
+        wards = get_wards(conn)
+
+        ward_options = []
+        for _, row in wards.iterrows():
+            ward_options.append(int(row["ward_id"]))
+
+        return ward_options
+    finally:
+        if conn is not None and conn.is_connected():
+            conn.close()
 
 
 def build_parameter_widgets(query_key):
@@ -18,13 +41,13 @@ def build_parameter_widgets(query_key):
     Returns:
         dict: Parameter names and values selected by the user.
 
-    These dictionary keys should match the future function parameters in
-    queries.py where possible. For example, Q1 can later call:
-        queries.affordable_safe(connection, min_units=params["min_units"])
+    These dictionary keys should match the function parameters in queries.py.
+    For example, Q1 calls:
+        query_affordable_safe(connection, min_units=params["min_units"])
     """
 
     # Start with an empty dictionary. Each query branch adds only the
-    # parameters that its future SQL function will need.
+    # parameters that its query function will need.
     params = {}
 
     if query_key == "q1_affordable_safe":
@@ -50,25 +73,17 @@ def build_parameter_widgets(query_key):
             index=DEFAULT_YEAR_INDEX,
         )
 
-        # The user sees readable labels, but queries.py will receive the
-        # compact CTA code stored in params["day_type"].
-        selected_day_type = st.selectbox(
-            "Day type",
-            list(DAY_TYPE_OPTIONS.keys()),
-        )
-        params["day_type"] = DAY_TYPE_OPTIONS[selected_day_type]
-
     elif query_key == "q5_high_demand_efficient":
         params["year"] = st.selectbox(
             "Year",
             YEARS,
             index=DEFAULT_YEAR_INDEX,
         )
-        params["max_avg_days"] = st.slider(
-            "Maximum average service days",
+        params["max_avg_hours"] = st.slider(
+            "Maximum average service hours",
             min_value=0,
-            max_value=100,
-            value=30,
+            max_value=2000,
+            value=720,
         )
 
     elif query_key == "q6_most_accessible":
@@ -132,11 +147,27 @@ def build_parameter_widgets(query_key):
     elif query_key == "q12_housing_availability":
         st.info("This query does not need any parameters.")
 
-    elif query_key == "q14_peak_transit_days":
-        params["year"] = st.selectbox(
-            "Year",
-            YEARS,
-            index=DEFAULT_YEAR_INDEX,
+    elif query_key == "q14_ward_overlap":
+        try:
+            ward_options = load_ward_options()
+        except Exception as error:
+            # The real dropdown should come from get_wards(conn). This fallback
+            # keeps the page visible if the database is temporarily unavailable.
+            st.error(f"Could not load wards from database: {error}")
+            ward_options = list(range(1, 51))
+
+        if not ward_options:
+            st.error("No wards were found in the database.")
+            ward_options = list(range(1, 51))
+
+        default_index = 0
+        if 27 in ward_options:
+            default_index = ward_options.index(27)
+
+        params["ward_id"] = st.selectbox(
+            "Ward",
+            ward_options,
+            index=default_index,
         )
 
     return params
