@@ -3,12 +3,12 @@ USE chicago_neighborhood;
 CREATE OR REPLACE VIEW vw_crime_aggregation AS
 SELECT
     community_id,
-    YEAR(date) AS crime_year,
-    MONTH(date) AS crime_month,
+    YEAR(crime_date) AS crime_year,
+    MONTH(crime_date) AS crime_month,
     primary_type AS crime_type,
     COUNT(*) AS crime_count
 FROM crime_records
-GROUP BY community_id, YEAR(date), MONTH(date), primary_type;
+GROUP BY community_id, YEAR(crime_date), MONTH(crime_date), primary_type;
 
 CREATE OR REPLACE VIEW vw_neighborhood_profile AS
 SELECT
@@ -42,8 +42,8 @@ LEFT JOIN census_profiles cp
 LEFT JOIN (
     SELECT community_id, COUNT(*) AS crime_incidents_2025
     FROM crime_records
-    WHERE date >= '2025-01-01'
-      AND date < '2026-01-01'
+    WHERE crime_date >= '2025-01-01'
+      AND crime_date < '2026-01-01'
     GROUP BY community_id
 ) cr
     ON ca.community_id = cr.community_id

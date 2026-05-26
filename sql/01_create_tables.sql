@@ -1,4 +1,4 @@
-USE chicago_neighborhood_explorer;
+USE chicago_neighborhood;
 
 CREATE TABLE community_areas (
     community_id INT PRIMARY KEY,
