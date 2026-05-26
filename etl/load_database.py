@@ -203,7 +203,7 @@ LOAD_SPECS = {
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--host", default=os.getenv("MYSQL_HOST", "127.0.0.1"))
+    parser.add_argument("--host", default=os.getenv("MYSQL_HOST", "localhost"))
     parser.add_argument("--port", type=int, default=int(os.getenv("MYSQL_PORT", "3306")))
     parser.add_argument("--user", default=os.getenv("MYSQL_USER", "root"))
     parser.add_argument("--password", default=DEFAULT_PASSWORD)
@@ -213,6 +213,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--create-indexes", action="store_true")
     parser.add_argument("--skip-load", action="store_true")
     parser.add_argument("--truncate", action="store_true")
+    parser.add_argument(
+        "--reset-schema",
+        action="store_true",
+        help="Drop and recreate the database before creating final report tables.",
+    )
     return parser.parse_args()
 
 
@@ -250,6 +255,8 @@ def run_sql_file(cursor, path: Path) -> None:
 def create_schema(args: argparse.Namespace) -> None:
     with connect(args) as connection:
         cursor = connection.cursor()
+        if args.reset_schema:
+            cursor.execute(f"DROP DATABASE IF EXISTS `{args.database}`")
         run_sql_file(cursor, sql_path("00_create_database.sql"))
         connection.commit()
     with connect(args, database=args.database) as connection:
