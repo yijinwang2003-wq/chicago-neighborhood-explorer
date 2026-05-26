@@ -12,7 +12,7 @@ import mysql.connector
 
 
 DEFAULT_DATABASE = "chicago_neighborhood_explorer"
-DEFAULT_PASSWORD = os.getenv("MYSQL_PASSWORD", "Abenben129")
+DEFAULT_PASSWORD = os.getenv("MYSQL_PASSWORD", "YOUR_PASSWORD")
 
 CHECKS = [
     (

@@ -53,7 +53,7 @@ The loader reads MySQL settings from command-line flags or environment variables
 export MYSQL_HOST=127.0.0.1
 export MYSQL_PORT=3306
 export MYSQL_USER=root
-export MYSQL_PASSWORD=Abenben129
+export MYSQL_PASSWORD=YOUR_PASSWORD
 export MYSQL_DATABASE=chicago_neighborhood_explorer
 ```
 
