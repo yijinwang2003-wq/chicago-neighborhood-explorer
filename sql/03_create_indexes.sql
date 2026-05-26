@@ -1,4 +1,4 @@
-USE chicago_neighborhood_explorer;
+USE chicago_neighborhood;
 
 CREATE INDEX idx_overlap_ward
     ON community_area_ward_overlap (ward_id, pct_of_ward);

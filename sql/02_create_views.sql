@@ -1,4 +1,4 @@
-USE chicago_neighborhood_explorer;
+USE chicago_neighborhood;
 
 CREATE OR REPLACE VIEW vw_crime_aggregation AS
 SELECT

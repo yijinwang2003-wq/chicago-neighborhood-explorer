@@ -1,4 +1,4 @@
-USE chicago_neighborhood_explorer;
+USE chicago_neighborhood;
 
 -- Query 1: Compare neighborhood profiles.
 SELECT
