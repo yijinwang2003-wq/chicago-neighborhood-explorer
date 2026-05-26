@@ -54,7 +54,7 @@ export MYSQL_HOST=127.0.0.1
 export MYSQL_PORT=3306
 export MYSQL_USER=root
 export MYSQL_PASSWORD=YOUR_PASSWORD
-export MYSQL_DATABASE=chicago_neighborhood_explorer
+export MYSQL_DATABASE=chicago_neighborhood
 ```
 
 ## Prepare Data
@@ -134,9 +134,9 @@ If you prefer MySQL Workbench or the MySQL CLI, run:
 
 ```bash
 mysql -u root -p < sql/00_create_database.sql
-mysql -u root -p chicago_neighborhood_explorer < sql/01_create_tables.sql
-mysql -u root -p chicago_neighborhood_explorer < sql/02_create_views.sql
-mysql -u root -p chicago_neighborhood_explorer < sql/03_create_indexes.sql
+mysql -u root -p chicago_neighborhood < sql/01_create_tables.sql
+mysql -u root -p chicago_neighborhood < sql/02_create_views.sql
+mysql -u root -p chicago_neighborhood < sql/03_create_indexes.sql
 ```
 
 Load data with `etl/load_database.py`, because it handles NULL conversion, booleans, and `LOAD DATA LOCAL INFILE` column mappings for the processed CSV files.
