@@ -6,7 +6,6 @@ Streamlit inputs and return the selected values in a plain Python dictionary.
 
 import streamlit as st
 
-from config import DEFAULT_YEAR_INDEX, YEARS
 from db import get_connection
 from queries import get_wards
 
@@ -59,26 +58,26 @@ def build_parameter_widgets(query_key):
         )
 
     elif query_key == "q2_housing_near_transit":
-        params["min_stops"] = st.slider(
-            "Minimum nearby transit stops",
-            min_value=1,
-            max_value=10,
-            value=1,
+        params["max_distance_meters"] = st.slider(
+            "Maximum station distance (meters)",
+            min_value=100,
+            max_value=2000,
+            value=800,
+            step=100,
+        )
+        params["top_n"] = st.slider(
+            "Maximum rows to show",
+            min_value=10,
+            max_value=200,
+            value=100,
+            step=10,
         )
 
     elif query_key == "q3_transit_usage":
-        params["year"] = st.selectbox(
-            "Year",
-            YEARS,
-            index=DEFAULT_YEAR_INDEX,
-        )
+        st.info("This query uses the project's 2025 rail ridership data.")
 
     elif query_key == "q5_high_demand_efficient":
-        params["year"] = st.selectbox(
-            "Year",
-            YEARS,
-            index=DEFAULT_YEAR_INDEX,
-        )
+        st.info("This query uses the project's 2025 official 311 data.")
         params["max_avg_hours"] = st.slider(
             "Maximum average service hours",
             min_value=0,
@@ -95,11 +94,7 @@ def build_parameter_widgets(query_key):
         )
 
     elif query_key == "q7_crime_near_housing":
-        params["year"] = st.selectbox(
-            "Year",
-            YEARS,
-            index=DEFAULT_YEAR_INDEX,
-        )
+        st.info("This query uses the project's 2025 crime data.")
         params["min_housing_units"] = st.slider(
             "Minimum housing units",
             min_value=0,
@@ -114,18 +109,10 @@ def build_parameter_widgets(query_key):
             max_value=77,
             value=20,
         )
-        params["year"] = st.selectbox(
-            "Year",
-            YEARS,
-            index=DEFAULT_YEAR_INDEX,
-        )
+        st.info("This query uses the project's 2025 rail ridership data.")
 
     elif query_key == "q9_service_delays":
-        params["year"] = st.selectbox(
-            "Year",
-            YEARS,
-            index=DEFAULT_YEAR_INDEX,
-        )
+        st.info("This query uses the project's 2025 official 311 data.")
         params["top_n"] = st.slider(
             "Number of neighborhoods to show",
             min_value=5,

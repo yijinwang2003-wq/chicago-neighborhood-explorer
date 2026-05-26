@@ -42,43 +42,77 @@ def query_affordable_safe(conn, min_units: int = 10):
 #  Query 2 — Housing Near Transit
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-def query_housing_near_transit(conn, min_stops: int = 1):
+def query_housing_near_transit(conn, max_distance_meters: int = 800, top_n: int = 100):
     """
-    Find affordable housing developments in community areas that have
-    at least *min_stops* CTA rail stations.
+    Find affordable housing developments within *max_distance_meters*
+    of CTA rail stations. Distance is calculated at query time from
+    housing and station coordinates.
 
-    Uses: housing_developments, community_areas, cta_rail_stations
+    Uses: housing_developments, community_areas, cta_rail_stations,
+          serves, cta_lines
     """
     sql = """
-        SELECT hd.development_id,
-               hd.property_name,
-               hd.raw_property_type          AS property_type,
-               hd.reported_unit_count        AS total_units,
-               hd.address,
-               ca.name                       AS community_area,
-               sc.num_stops
-        FROM   housing_developments hd
-        JOIN   community_areas ca ON ca.community_id = hd.community_id
-        JOIN   (
-                   SELECT community_id, COUNT(*) AS num_stops
-                   FROM   cta_rail_stations
-                   WHERE  community_id IS NOT NULL
-                   GROUP BY community_id
-                   HAVING COUNT(*) >= %s
-               ) sc ON sc.community_id = hd.community_id
-        ORDER BY sc.num_stops DESC, hd.property_name
+        WITH candidate_distances AS (
+            SELECT hd.development_id,
+                   hd.property_name,
+                   hd.raw_property_type       AS property_type,
+                   hd.reported_unit_count     AS total_units,
+                   hd.address,
+                   ca.name                    AS community_area,
+                   rs.station_id,
+                   rs.station_name,
+                   ST_Distance_Sphere(
+                       POINT(hd.longitude, hd.latitude),
+                       POINT(rs.longitude, rs.latitude)
+                   ) AS distance_meters
+            FROM   housing_developments hd
+            JOIN   community_areas ca
+                   ON ca.community_id = hd.community_id
+            CROSS JOIN cta_rail_stations rs
+            WHERE  hd.latitude IS NOT NULL
+              AND  hd.longitude IS NOT NULL
+              AND  rs.latitude IS NOT NULL
+              AND  rs.longitude IS NOT NULL
+              AND  rs.community_id IS NOT NULL
+        )
+        SELECT cd.development_id,
+               cd.property_name,
+               cd.property_type,
+               cd.total_units,
+               cd.address,
+               cd.community_area,
+               cd.station_name,
+               GROUP_CONCAT(DISTINCT l.line_name ORDER BY l.line_name SEPARATOR ', ')
+                   AS rail_lines,
+               ROUND(cd.distance_meters, 1) AS distance_meters
+        FROM   candidate_distances cd
+        LEFT JOIN serves sv
+               ON sv.station_id = cd.station_id
+        LEFT JOIN cta_lines l
+               ON l.line_id = sv.line_id
+        WHERE  cd.distance_meters <= %s
+        GROUP BY cd.development_id,
+                 cd.property_name,
+                 cd.property_type,
+                 cd.total_units,
+                 cd.address,
+                 cd.community_area,
+                 cd.station_name,
+                 cd.distance_meters
+        ORDER BY cd.distance_meters ASC, cd.property_name, cd.station_name
+        LIMIT %s
     """
-    return pd.read_sql(sql, conn, params=(min_stops,))
+    return pd.read_sql(sql, conn, params=(max_distance_meters, top_n))
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #  Query 3 — Transit Usage by Neighborhood
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-def query_transit_usage(conn, year: int = 2025):
+def query_transit_usage(conn):
     """
     For each community area, compute total CTA rail entries and average
-    weekday ridership for a given *year*.
+    weekday ridership for calendar year 2025.
 
     Uses: rail_ridership_monthly, cta_rail_stations, community_areas
     """
@@ -91,21 +125,22 @@ def query_transit_usage(conn, year: int = 2025):
         FROM   rail_ridership_monthly rr
         JOIN   cta_rail_stations rs ON rs.station_id = rr.station_id
         JOIN   community_areas ca  ON ca.community_id = rs.community_id
-        WHERE  YEAR(rr.month_beginning) = %s
+        WHERE  rr.month_beginning >= '2025-01-01'
+          AND  rr.month_beginning <  '2026-01-01'
         GROUP BY ca.community_id, ca.name
         ORDER BY total_entries DESC
     """
-    return pd.read_sql(sql, conn, params=(year,))
+    return pd.read_sql(sql, conn)
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #  Query 5 — High Demand vs Service Efficiency
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-def query_high_demand_efficient(conn, year: int = 2025, max_avg_hours: int = 720):
+def query_high_demand_efficient(conn, max_avg_hours: int = 720):
     """
     Find community areas with above-average 311 request volume but fast
-    average response times (<= *max_avg_hours* hours) in a given *year*.
+    average response times (<= *max_avg_hours* hours) in calendar year 2025.
 
     Uses: service_requests, community_areas
     """
@@ -117,7 +152,8 @@ def query_high_demand_efficient(conn, year: int = 2025, max_avg_hours: int = 720
                        AS avg_response_hours
             FROM   service_requests
             WHERE  record_source = 'OPEN_DATA'
-              AND  YEAR(created_date) = %s
+              AND  created_date >= '2025-01-01'
+              AND  created_date <  '2026-01-01'
               AND  closed_date IS NOT NULL
               AND  closed_date >= created_date
             GROUP BY community_id
@@ -132,7 +168,7 @@ def query_high_demand_efficient(conn, year: int = 2025, max_avg_hours: int = 720
           AND  s.avg_response_hours <= %s
         ORDER BY s.avg_response_hours ASC
     """
-    return pd.read_sql(sql, conn, params=(year, max_avg_hours))
+    return pd.read_sql(sql, conn, params=(max_avg_hours,))
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -166,10 +202,10 @@ def query_most_accessible(conn, top_n: int = 15):
 #  Query 7 — Crime Near Housing
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-def query_crime_near_housing(conn, year: int = 2025, min_housing_units: int = 5):
+def query_crime_near_housing(conn, min_housing_units: int = 5):
     """
     Find community areas where total crime is above the city-wide average
-    AND affordable housing units >= *min_housing_units* for a given *year*.
+    AND affordable housing units >= *min_housing_units* for calendar year 2025.
 
     Uses: crime_records, housing_developments, community_areas
     """
@@ -178,7 +214,8 @@ def query_crime_near_housing(conn, year: int = 2025, min_housing_units: int = 5)
             SELECT community_id,
                    COUNT(*) AS total_crimes
             FROM   crime_records
-            WHERE  YEAR(crime_date) = %s
+            WHERE  crime_date >= '2025-01-01'
+              AND  crime_date <  '2026-01-01'
             GROUP BY community_id
         ),
         area_housing AS (
@@ -200,17 +237,17 @@ def query_crime_near_housing(conn, year: int = 2025, min_housing_units: int = 5)
           AND  ah.total_units >= %s
         ORDER BY ac.total_crimes DESC
     """
-    return pd.read_sql(sql, conn, params=(year, min_housing_units))
+    return pd.read_sql(sql, conn, params=(min_housing_units,))
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #  Query 8 — Transit Stop Popularity
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-def query_transit_popularity(conn, top_n: int = 10, year: int = 2025):
+def query_transit_popularity(conn, top_n: int = 10):
     """
     Identify the top *top_n* transit stations with the highest total
-    ridership in a given *year*, along with their community areas.
+    ridership in calendar year 2025, along with their community areas.
 
     Uses: rail_ridership_monthly, cta_rail_stations, community_areas
     """
@@ -223,22 +260,23 @@ def query_transit_popularity(conn, top_n: int = 10, year: int = 2025):
         FROM   rail_ridership_monthly rr
         JOIN   cta_rail_stations rs ON rs.station_id = rr.station_id
         LEFT JOIN community_areas ca ON ca.community_id = rs.community_id
-        WHERE  YEAR(rr.month_beginning) = %s
+        WHERE  rr.month_beginning >= '2025-01-01'
+          AND  rr.month_beginning <  '2026-01-01'
         GROUP BY rs.station_id, rs.station_name, ca.name
         ORDER BY total_entries DESC
         LIMIT %s
     """
-    return pd.read_sql(sql, conn, params=(year, top_n))
+    return pd.read_sql(sql, conn, params=(top_n,))
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #  Query 9 — Service Request Delays
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-def query_service_delays(conn, year: int = 2025, top_n: int = 15):
+def query_service_delays(conn, top_n: int = 15):
     """
     Find the community areas with the longest average 311 response time
-    in a given *year*. Return the top *top_n* slowest areas.
+    in calendar year 2025. Return the top *top_n* slowest areas.
 
     Uses: service_requests, community_areas
     """
@@ -251,14 +289,15 @@ def query_service_delays(conn, year: int = 2025, top_n: int = 15):
         FROM   service_requests sr
         JOIN   community_areas ca ON ca.community_id = sr.community_id
         WHERE  record_source = 'OPEN_DATA'
-          AND  YEAR(sr.created_date) = %s
+          AND  sr.created_date >= '2025-01-01'
+          AND  sr.created_date <  '2026-01-01'
           AND  sr.closed_date IS NOT NULL
           AND  sr.closed_date >= sr.created_date
         GROUP BY ca.community_id, ca.name
         ORDER BY avg_response_hours DESC
         LIMIT %s
     """
-    return pd.read_sql(sql, conn, params=(year, top_n))
+    return pd.read_sql(sql, conn, params=(top_n,))
 
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -5,11 +5,6 @@ query labels, query descriptions, and fixed dropdown options.
 """
 
 
-# The dashboard uses the same year choices in several queries.
-YEARS = list(range(2020, 2027))
-DEFAULT_YEAR_INDEX = YEARS.index(2025)
-
-
 # Each query has a stable internal key, a user-facing label, and a short
 # description.  The stable keys make it easier to connect each selection to a
 # real function in queries.py later.
@@ -20,15 +15,15 @@ QUERY_OPTIONS = {
     },
     "q2_housing_near_transit": {
         "label": "Q2 Housing Near Transit",
-        "description": "Find neighborhoods with housing options near CTA access.",
+        "description": "Find affordable housing developments within a selected distance of CTA rail stations.",
     },
     "q3_transit_usage": {
         "label": "Q3 Transit Usage",
-        "description": "Compare transit usage by selected year.",
+        "description": "Compare 2025 transit usage by neighborhood.",
     },
     "q5_high_demand_efficient": {
         "label": "Q5 High Demand + Efficient",
-        "description": "Find areas with strong demand and efficient service response.",
+        "description": "Find 2025 areas with strong demand and efficient service response.",
     },
     "q6_most_accessible": {
         "label": "Q6 Most Accessible",
@@ -36,15 +31,15 @@ QUERY_OPTIONS = {
     },
     "q7_crime_near_housing": {
         "label": "Q7 Crime Near Housing",
-        "description": "Compare crime patterns near affordable housing.",
+        "description": "Compare 2025 crime patterns near affordable housing.",
     },
     "q8_transit_popularity": {
         "label": "Q8 Transit Popularity",
-        "description": "Rank neighborhoods by transit popularity.",
+        "description": "Rank 2025 transit popularity.",
     },
     "q9_service_delays": {
         "label": "Q9 Service Delays",
-        "description": "Find neighborhoods with the longest service delay patterns.",
+        "description": "Find 2025 neighborhoods with the longest service delay patterns.",
     },
     "q10_demographics_vs_crime": {
         "label": "Q10 Demographics vs Crime",
