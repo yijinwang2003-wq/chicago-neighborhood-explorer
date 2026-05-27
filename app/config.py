@@ -15,7 +15,7 @@ QUERY_OPTIONS = {
     },
     "q2_housing_near_transit": {
         "label": "Q2 Housing Near Transit",
-        "description": "Find affordable housing developments in community areas that have CTA rail stations.",
+        "description": "Find affordable housing developments within a selected distance of CTA rail stations.",
     },
     "q3_transit_usage": {
         "label": "Q3 Transit Usage",
