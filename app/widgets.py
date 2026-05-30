@@ -6,29 +6,12 @@ Streamlit inputs and return the selected values in a plain Python dictionary.
 
 import streamlit as st
 
-from db import get_connection
-from queries import get_wards
+from api_client import get_wards
 
 
 def load_ward_options():
-    """Load ward IDs from the database for the Q14 dropdown."""
-
-    conn = None
-
-    try:
-        conn = get_connection()
-
-        # get_wards() returns a pandas DataFrame with one ward_id column.
-        wards = get_wards(conn)
-
-        ward_options = []
-        for _, row in wards.iterrows():
-            ward_options.append(int(row["ward_id"]))
-
-        return ward_options
-    finally:
-        if conn is not None and conn.is_connected():
-            conn.close()
+    """Load ward IDs from the FastAPI backend for the Q14 dropdown."""
+    return get_wards()
 
 
 def build_parameter_widgets(query_key):
@@ -138,7 +121,7 @@ def build_parameter_widgets(query_key):
         try:
             ward_options = load_ward_options()
         except Exception as error:
-            # The real dropdown should come from get_wards(conn). This fallback
+            # The real dropdown should come from the API. This fallback
             # keeps the page visible if the database is temporarily unavailable.
             st.error(f"Could not load wards from database: {error}")
             ward_options = list(range(1, 51))

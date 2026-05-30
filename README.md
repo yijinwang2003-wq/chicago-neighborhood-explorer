@@ -57,6 +57,89 @@ export MYSQL_PASSWORD=YOUR_PASSWORD
 export MYSQL_DATABASE=chicago_neighborhood
 ```
 
+`.env` is ignored by Git and should contain your real local credentials. Use
+`.env.example` as the template for required variables.
+
+## Run FastAPI Backend
+
+Start the API server from the project root:
+
+```bash
+uvicorn api.main:app --reload
+```
+
+Then open the interactive API docs:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+The Phase 1 API uses the existing MySQL database, tables, and views. It does
+not reload data or rerun ETL. The frontend reads through the API, with one POST
+endpoint preserved for the existing service-request insert form.
+
+The Streamlit frontend reads API settings from `API_BASE_URL`, defaulting to:
+
+```text
+http://localhost:8000
+```
+
+## Run App Containers With Docker Compose
+
+This Compose setup containerizes only the application layer. It does not start
+or manage MySQL. Your existing local MySQL instance must already contain the
+schema, views, indexes, and Chicago datasets.
+
+Create a local `.env` from `.env.example` and set the MySQL connection values
+for your existing local database:
+
+```bash
+cp .env.example .env
+```
+
+When the API runs inside Docker, `localhost` means the API container itself. On
+Docker Desktop, use this host value to reach MySQL running on your machine:
+
+```text
+MYSQL_HOST=host.docker.internal
+```
+
+The Streamlit container uses:
+
+```text
+API_BASE_URL=http://api:8000
+```
+
+Build and start all services:
+
+```bash
+docker compose up --build
+```
+
+If your Docker CLI only supports the legacy Compose command:
+
+```bash
+docker-compose up --build
+```
+
+Then verify:
+
+```text
+http://localhost:8000/docs
+http://localhost:8501
+```
+
+Compose services:
+
+```text
+api       FastAPI backend on port 8000
+frontend  Streamlit frontend on port 8501
+```
+
+The API connects to your existing MySQL database through `MYSQL_HOST`,
+`MYSQL_PORT`, `MYSQL_USER`, `MYSQL_PASSWORD`, and `MYSQL_DATABASE`. Docker
+startup does not create a database, load data, or rerun ETL.
+
 ## Prepare Data
 
 Generate MySQL-ready CSV files in `data/processed`:
@@ -127,6 +210,30 @@ report_assets/row_count_log.txt
 ```
 
 Key checks include 77 community areas, 50 wards, both directions of the ward/community M:N relationship, unique station-month ridership rows, and the count of `OPEN_DATA` versus `GUI_INPUT` service-request rows.
+
+## Run Tests
+
+The pytest suite mocks the FastAPI database dependency, so it does not require
+a running MySQL server or loaded data.
+
+```bash
+pytest
+```
+
+The tests cover API health, neighborhood list/detail, compare responses,
+invalid compare IDs, 404 cases, and response schema shape.
+
+## Continuous Integration
+
+GitHub Actions runs on every push and pull request:
+
+```text
+.github/workflows/ci.yml
+```
+
+The CI job checks out the repo, sets up Python, installs `requirements.txt`,
+compiles Python files, and runs `pytest`. It does not require MySQL, Docker, or
+any external service.
 
 ## Manual SQL Order
 

@@ -19,11 +19,7 @@ def get_placeholder_dataframe(query_key, params):
     Returns:
         pandas.DataFrame: Small fake result table for UI testing.
 
-    Later, this function can be replaced with real query calls such as:
-        connection = get_connection()
-        results = queries.some_query_function(connection, **params)
-        connection.close()
-        return results
+    Later, this function can be replaced with API-backed query calls.
     """
 
     selected_query = QUERY_OPTIONS[query_key]["label"]

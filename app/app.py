@@ -4,141 +4,67 @@ This file is intentionally focused on page layout and user flow.  Supporting
 details live in nearby modules:
     config.py        query labels and shared constants
     widgets.py       Streamlit parameter widgets
-    queries.py       real SQL query functions
-    db.py            MySQL connection helper
+    api_client.py    FastAPI HTTP client helper
 """
 
 import streamlit as st
 
-from config import QUERY_OPTIONS
-from db import get_connection
-from queries import (
-    get_community_areas,
-    insert_service_request,
-    query_affordable_safe,
-    query_housing_near_transit,
-    query_transit_usage,
-    query_high_demand_efficient,
-    query_most_accessible,
-    query_crime_near_housing,
-    query_transit_popularity,
-    query_service_delays,
-    query_demographics_vs_crime,
-    query_neighborhood_ranking,
-    query_housing_availability,
-    query_ward_overlap,
+from api_client import (
+    create_service_request,
+    get_neighborhoods,
+    health,
+    run_query,
 )
+from config import QUERY_OPTIONS
 from widgets import build_parameter_widgets
 
 
-# This dictionary connects each stable frontend query key to the matching
-# function in queries.py. Keeping the mapping here makes the Streamlit flow
-# easy to read: the selected key chooses the function, and widgets.py supplies
-# the parameters for that function.
-QUERY_FUNCTIONS = {
-    "q1_affordable_safe": query_affordable_safe,
-    "q2_housing_near_transit": query_housing_near_transit,
-    "q3_transit_usage": query_transit_usage,
-    "q5_high_demand_efficient": query_high_demand_efficient,
-    "q6_most_accessible": query_most_accessible,
-    "q7_crime_near_housing": query_crime_near_housing,
-    "q8_transit_popularity": query_transit_popularity,
-    "q9_service_delays": query_service_delays,
-    "q10_demographics_vs_crime": query_demographics_vs_crime,
-    "q11_neighborhood_ranking": query_neighborhood_ranking,
-    "q12_housing_availability": query_housing_availability,
-    "q14_ward_overlap": query_ward_overlap,
-}
-
-
 def execute_query(query_key, params):
-    """Run the selected query function and return its pandas DataFrame.
+    """Run the selected query through the FastAPI backend.
 
     Args:
         query_key (str): Stable key selected in the sidebar.
         params (dict): Values collected by widgets.py for that query.
 
     Returns:
-        pandas.DataFrame: Results returned by the selected function in
-        queries.py.
-
-    The connection is opened only when the user clicks Run Query, then closed
-    immediately after the SQL finishes. This keeps the UI simple and avoids
-    leaving old database connections open between Streamlit reruns.
+        pandas.DataFrame: Results returned by the API.
     """
-
-    conn = None
-
-    try:
-        # Create the real MySQL connection that every query function expects
-        # as its first argument.
-        conn = get_connection()
-
-        # Dispatch to the selected query function. The **params syntax expands
-        # the widget dictionary into named function arguments, for example:
-        # {"year": 2025, "top_n": 20} becomes year=2025, top_n=20.
-        results = QUERY_FUNCTIONS[query_key](conn, **params)
-        return results
-    finally:
-        # Always close the connection when we are done, even if the query
-        # raises an error. mysql.connector exposes is_connected() so we can
-        # avoid closing an object that never connected successfully.
-        if conn is not None and conn.is_connected():
-            conn.close()
+    return run_query(query_key, params)
 
 
 def show_database_status():
-    """Show a small optional database connection test in the sidebar.
+    """Show a small optional backend connection test in the sidebar.
 
-    This button is only a quick helper for checking whether the database
-    credentials are set correctly.
+    This button is only a quick helper for checking whether the API and its
+    database connection are available.
     """
 
     with st.sidebar.expander("Database connection"):
         st.caption("Uses MYSQL_* environment variables or a local .env file.")
 
         if st.button("Test connection"):
-            connection = None
-
             try:
-                connection = get_connection()
-                st.success("Connected to MySQL.")
+                result = health()
+                st.success(f"Connected to MySQL through API: {result['database']}.")
             except Exception as error:
                 st.error(f"Connection failed: {error}")
-            finally:
-                if connection is not None and connection.is_connected():
-                    connection.close()
 
 
 def load_community_area_options():
-    """Load community areas from MySQL for the service request dropdown.
+    """Load community areas from the FastAPI backend for the service request dropdown.
 
     Returns:
         list: Tuples in the format (community_id, community_area_name).
 
-    This helper keeps the database connection code out of the Streamlit form
+    This helper keeps the API response shape out of the Streamlit form
     itself. The form only needs a simple list of choices.
     """
+    community_areas = get_neighborhoods()
+    options = []
+    for row in community_areas:
+        options.append((int(row["community_id"]), row["community_name"]))
 
-    conn = None
-
-    try:
-        conn = get_connection()
-
-        # get_community_areas() already returns a pandas DataFrame with
-        # community_id and name columns.
-        community_areas = get_community_areas(conn)
-
-        # Convert the DataFrame rows into simple tuples. The ID is what goes
-        # into the database, while the name is what the user sees.
-        options = []
-        for _, row in community_areas.iterrows():
-            options.append((int(row["community_id"]), row["name"]))
-
-        return options
-    finally:
-        if conn is not None and conn.is_connected():
-            conn.close()
+    return options
 
 
 def show_insert_service_request_section():
@@ -170,14 +96,9 @@ def show_insert_service_request_section():
         submitted = st.form_submit_button("Insert Service Request")
 
     if submitted:
-        conn = None
-
         try:
             community_id = selected_community_area[0]
-
-            conn = get_connection()
-            insert_service_request(
-                conn,
+            create_service_request(
                 community_id=community_id,
                 request_type=request_type,
                 status=status,
@@ -186,9 +107,6 @@ def show_insert_service_request_section():
             st.success("Service request inserted successfully.")
         except Exception as error:
             st.error(f"Insert failed: {error}")
-        finally:
-            if conn is not None and conn.is_connected():
-                conn.close()
 
 
 def show_query_section():
