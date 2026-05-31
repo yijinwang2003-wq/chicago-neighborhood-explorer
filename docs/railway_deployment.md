@@ -47,6 +47,23 @@ mysqldump -u root -p \
   > chicago_neighborhood_dump.sql
 ```
 
+## Alternative Railway demo import from processed CSVs
+
+If you do not have your local MySQL root password, or you want a lighter Railway demo database instead of a full dump, use the processed CSV files in `db-data/chicago_neighborhood_data/`.
+
+This path does not require `mysqldump` or any local MySQL server. It creates the lightweight demo schema in [sql/06_create_demo_database.sql](../sql/06_create_demo_database.sql), loads the processed CSVs, synthesizes the small demo tables needed by the current API endpoints, materializes `neighborhood_profile_snapshot`, and verifies the result.
+
+Run it against Railway MySQL with:
+
+```bash
+MYSQL_HOST=YOUR_RAILWAY_MYSQL_HOST \
+MYSQL_PORT=YOUR_RAILWAY_MYSQL_PORT \
+MYSQL_USER=YOUR_RAILWAY_MYSQL_USER \
+MYSQL_PASSWORD=YOUR_RAILWAY_MYSQL_PASSWORD \
+MYSQL_DATABASE=YOUR_RAILWAY_MYSQL_DATABASE \
+python3 scripts/import_demo_csv_to_railway.py
+```
+
 ## 3. Import into Railway MySQL
 
 Copy the Railway MySQL credentials from the Railway dashboard. Use the exact values Railway provides for the database service:
@@ -131,6 +148,7 @@ https://YOUR-FRONTEND-SERVICE.up.railway.app
 - `/api/compare?ids=1,2,3` returns the expected comparison payload
 - `/docs` loads without errors
 - the frontend page loads and can reach the API through `API_BASE_URL`
+- `neighborhood_profile_snapshot` contains 77 rows
 
 ## Notes
 

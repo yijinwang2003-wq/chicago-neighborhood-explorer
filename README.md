@@ -10,6 +10,8 @@ FastAPI · MySQL · Streamlit · Docker · Pytest · GitHub Actions
 
 Deployment target: Railway.
 
+The Railway demo can use the lightweight processed dataset in `db-data/chicago_neighborhood_data/`, while the benchmark report documents optimization over the full local 2.1M+ source-row database.
+
 ```text
 Frontend: TODO
 API Docs: TODO
@@ -189,6 +191,8 @@ http://localhost:8501
 
 The full deployment workflow, including Railway MySQL import/export, lives in
 [docs/railway_deployment.md](docs/railway_deployment.md).
+
+If you do not have your local MySQL root password, use the processed-CSV demo import path described there instead of `mysqldump`.
 
 ## Testing and CI
 
