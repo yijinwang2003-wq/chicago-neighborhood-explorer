@@ -33,27 +33,33 @@ def build_parameter_widgets(query_key):
     params = {}
 
     if query_key == "q1_affordable_safe":
-        params["min_units"] = st.slider(
-            "Minimum affordable housing units",
-            min_value=0,
-            max_value=100,
-            value=10,
+        params["min_units"] = int(
+            st.slider(
+                "Minimum affordable housing units",
+                min_value=0,
+                max_value=100,
+                value=10,
+            )
         )
 
     elif query_key == "q2_housing_near_transit":
-        params["max_distance_meters"] = st.slider(
-            "Maximum station distance (meters)",
-            min_value=100,
-            max_value=2000,
-            value=800,
-            step=100,
+        params["max_distance_meters"] = int(
+            st.slider(
+                "Maximum station distance (meters)",
+                min_value=100,
+                max_value=2000,
+                value=800,
+                step=100,
+            )
         )
-        params["top_n"] = st.slider(
-            "Maximum rows to show",
-            min_value=10,
-            max_value=200,
-            value=100,
-            step=10,
+        params["top_n"] = int(
+            st.slider(
+                "Maximum rows to show",
+                min_value=10,
+                max_value=200,
+                value=100,
+                step=10,
+            )
         )
 
     elif query_key == "q3_transit_usage":
@@ -61,57 +67,69 @@ def build_parameter_widgets(query_key):
 
     elif query_key == "q5_high_demand_efficient":
         st.info("This query uses the project's 2025 official 311 data.")
-        params["max_avg_hours"] = st.slider(
-            "Maximum average service hours",
-            min_value=0,
-            max_value=2000,
-            value=720,
+        params["max_avg_hours"] = int(
+            st.slider(
+                "Maximum average service hours",
+                min_value=0,
+                max_value=2000,
+                value=720,
+            )
         )
 
     elif query_key == "q6_most_accessible":
-        params["top_n"] = st.slider(
-            "Number of neighborhoods to show",
-            min_value=5,
-            max_value=77,
-            value=15,
+        params["top_n"] = int(
+            st.slider(
+                "Number of neighborhoods to show",
+                min_value=5,
+                max_value=77,
+                value=15,
+            )
         )
 
     elif query_key == "q7_crime_near_housing":
         st.info("This query uses the project's 2025 crime data.")
-        params["min_housing_units"] = st.slider(
-            "Minimum housing units",
-            min_value=0,
-            max_value=100,
-            value=10,
+        params["min_housing_units"] = int(
+            st.slider(
+                "Minimum housing units",
+                min_value=0,
+                max_value=100,
+                value=10,
+            )
         )
 
     elif query_key == "q8_transit_popularity":
-        params["top_n"] = st.slider(
-            "Number of neighborhoods to show",
-            min_value=5,
-            max_value=77,
-            value=20,
+        params["top_n"] = int(
+            st.slider(
+                "Number of neighborhoods to show",
+                min_value=5,
+                max_value=77,
+                value=20,
+            )
         )
         st.info("This query uses the project's 2025 rail ridership data.")
 
     elif query_key == "q9_service_delays":
         st.info("This query uses the project's 2025 official 311 data.")
-        params["top_n"] = st.slider(
-            "Number of neighborhoods to show",
-            min_value=5,
-            max_value=77,
-            value=20,
+        params["top_n"] = int(
+            st.slider(
+                "Number of neighborhoods to show",
+                min_value=5,
+                max_value=77,
+                value=20,
+            )
         )
 
     elif query_key == "q10_demographics_vs_crime":
         st.info("This query does not need any parameters.")
 
     elif query_key == "q11_neighborhood_ranking":
-        params["top_n"] = st.slider(
-            "Number of neighborhoods to show",
-            min_value=5,
-            max_value=77,
-            value=20,
+        params["top_n"] = int(
+            st.slider(
+                "Number of neighborhoods to show",
+                min_value=5,
+                max_value=77,
+                value=20,
+            )
         )
 
     elif query_key == "q12_housing_availability":
@@ -134,10 +152,12 @@ def build_parameter_widgets(query_key):
         if 27 in ward_options:
             default_index = ward_options.index(27)
 
-        params["ward_id"] = st.selectbox(
-            "Ward",
-            ward_options,
-            index=default_index,
+        params["ward_id"] = int(
+            st.selectbox(
+                "Ward",
+                ward_options,
+                index=default_index,
+            )
         )
 
     return params

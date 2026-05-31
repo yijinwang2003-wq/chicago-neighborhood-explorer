@@ -57,6 +57,19 @@ QUERY_PARAM_TYPES: dict[str, dict[str, Callable[[str], object]]] = {
 }
 
 
+def coerce_query_params(query_key: str, request: Request) -> dict[str, object]:
+    params: dict[str, object] = {}
+    for name, converter in QUERY_PARAM_TYPES.get(query_key, {}).items():
+        value = request.query_params.get(name)
+        if value is None or value == "":
+            continue
+        try:
+            params[name] = converter(value)
+        except (TypeError, ValueError) as exc:
+            raise HTTPException(status_code=422, detail=f"{name} has an invalid value") from exc
+    return params
+
+
 def dataframe_records(dataframe: pd.DataFrame) -> list[dict]:
     """Convert a DataFrame to JSON-safe records."""
     return dataframe.astype(object).where(pd.notnull(dataframe), None).to_dict(orient="records")
@@ -164,15 +177,7 @@ def run_query(
     if query_function is None:
         raise HTTPException(status_code=404, detail="Query not found")
 
-    params = {}
-    for name, converter in QUERY_PARAM_TYPES.get(query_key, {}).items():
-        value = request.query_params.get(name)
-        if value is not None:
-            try:
-                params[name] = converter(value)
-            except ValueError as exc:
-                raise HTTPException(status_code=422, detail=f"{name} has an invalid value") from exc
-
+    params = coerce_query_params(query_key, request)
     dataframe = query_function(db, **params)
     return dataframe_records(dataframe)
 

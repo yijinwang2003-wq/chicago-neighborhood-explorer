@@ -56,7 +56,7 @@ CREATE TABLE community_area_ward_overlap (
 
 CREATE TABLE management_companies (
     management_company VARCHAR(255) PRIMARY KEY,
-    phone_number VARCHAR(20)
+    phone_number VARCHAR(100)
 );
 
 CREATE TABLE housing_developments (
@@ -66,7 +66,7 @@ CREATE TABLE housing_developments (
     address VARCHAR(255) NOT NULL,
     raw_property_type VARCHAR(100),
     reported_unit_count INT,
-    contact_phone VARCHAR(30),
+    contact_phone VARCHAR(100),
     latitude DECIMAL(10, 7),
     longitude DECIMAL(10, 7),
     community_id INT NOT NULL,

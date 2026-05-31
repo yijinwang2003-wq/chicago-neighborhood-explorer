@@ -11,6 +11,35 @@ API_BASE_URL = os.getenv("API_BASE_URL", "http://localhost:8000")
 REQUEST_TIMEOUT_SECONDS = 15
 
 
+def _normalize_params(params: dict[str, Any]) -> dict[str, Any]:
+    normalized: dict[str, Any] = {}
+    for key, value in params.items():
+        if isinstance(value, bool):
+            normalized[key] = int(value)
+        elif isinstance(value, int):
+            normalized[key] = int(value)
+        elif isinstance(value, float):
+            normalized[key] = float(value)
+        elif isinstance(value, str):
+            stripped = value.strip()
+            if stripped.isdigit():
+                normalized[key] = int(stripped)
+            else:
+                try:
+                    normalized[key] = float(stripped)
+                except ValueError:
+                    normalized[key] = value
+        elif hasattr(value, "item"):
+            scalar = value.item()
+            if isinstance(scalar, (int, float)):
+                normalized[key] = scalar
+            else:
+                normalized[key] = scalar
+        else:
+            normalized[key] = value
+    return normalized
+
+
 def _request(method: str, path: str, **kwargs) -> Any:
     url = f"{API_BASE_URL.rstrip('/')}{path}"
     response = requests.request(method, url, timeout=REQUEST_TIMEOUT_SECONDS, **kwargs)
@@ -44,7 +73,7 @@ def compare(ids: list[int]) -> dict[str, Any]:
 
 
 def run_query(query_key: str, params: dict[str, Any]) -> pd.DataFrame:
-    rows = _request("GET", f"/api/queries/{query_key}", params=params)
+    rows = _request("GET", f"/api/queries/{query_key}", params=_normalize_params(params))
     return pd.DataFrame(rows)
 
 

@@ -1,7 +1,9 @@
 """Tests for the public FastAPI endpoints used by the frontend."""
 
+import pandas as pd
 import pytest
 
+import api.main as api_main
 from api.main import queries
 
 
@@ -149,3 +151,48 @@ def test_compare_returns_404_for_missing_ids(client, monkeypatch):
 
     assert response.status_code == 404
     assert response.json() == {"detail": {"missing_ids": [2]}}
+
+
+@pytest.mark.parametrize(
+    "query_key, query_string, expected_param, expected_value",
+    [
+        ("q5_high_demand_efficient", "?max_avg_hours=720", "max_avg_hours", 720),
+        ("q7_crime_near_housing", "?min_housing_units=10", "min_housing_units", 10),
+    ],
+)
+def test_run_query_coerces_numeric_params(client, fake_db, monkeypatch, query_key, query_string, expected_param, expected_value):
+    def fake_query(db, **kwargs):
+        assert db is fake_db
+        assert kwargs[expected_param] == expected_value
+        assert isinstance(kwargs[expected_param], int)
+        return pd.DataFrame([{"community_id": 1}])
+
+    monkeypatch.setitem(api_main.QUERY_FUNCTIONS, query_key, fake_query)
+
+    response = client.get(f"/api/queries/{query_key}{query_string}")
+
+    assert response.status_code == 200
+    assert response.json() == [{"community_id": 1}]
+
+
+@pytest.mark.parametrize(
+    "query_key, params, expected",
+    [
+        ("q1_affordable_safe", {"min_units": int}, {"min_units": 10}),
+        ("q2_housing_near_transit", {"max_distance_meters": int, "top_n": int}, {"max_distance_meters": 800, "top_n": 100}),
+        ("q5_high_demand_efficient", {"max_avg_hours": int}, {"max_avg_hours": 720}),
+        ("q6_most_accessible", {"top_n": int}, {"top_n": 15}),
+        ("q7_crime_near_housing", {"min_housing_units": int}, {"min_housing_units": 10}),
+        ("q8_transit_popularity", {"top_n": int}, {"top_n": 20}),
+    ],
+)
+def test_query_param_coercion_helper(query_key, params, expected):
+    request = type(
+        "RequestLike",
+        (),
+        {"query_params": type("QP", (), {"get": lambda self, name: str(expected[name])})()},
+    )()
+
+    coerced = api_main.coerce_query_params(query_key, request)
+
+    assert coerced == expected
