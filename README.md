@@ -18,7 +18,12 @@ API Docs: https://chicago-neighborhood-explorer-production.up.railway.app/docs
 Backend Health: https://chicago-neighborhood-explorer-production.up.railway.app/health
 ```
 
+### Frontend
+
 ![Frontend Demo](docs/images/frontend-demo.png)
+
+### API Documentation
+
 ![API Docs](docs/images/api-docs.png)
 
 ## Project Overview
@@ -47,6 +52,8 @@ The project emphasizes production-style software engineering practices:
 - Developed automated API tests and GitHub Actions CI without requiring a live MySQL instance.
 
 ## Architecture
+
+![Architecture](docs/images/architecture.png)
 
 ```text
 Browser
