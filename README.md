@@ -13,9 +13,13 @@ Deployment target: Railway.
 The Railway demo can use the lightweight processed dataset in `db-data/chicago_neighborhood_data/`, while the benchmark report documents optimization over the full local 2.1M+ source-row database.
 
 ```text
-Frontend: TODO
-API Docs: TODO
+Live Demo: https://authentic-solace-production.up.railway.app
+API Docs: https://chicago-neighborhood-explorer-production.up.railway.app/docs
+Backend Health: https://chicago-neighborhood-explorer-production.up.railway.app/health
 ```
+
+![Frontend Demo](docs/images/frontend-demo.png)
+![API Docs](docs/images/api-docs.png)
 
 ## Project Overview
 
