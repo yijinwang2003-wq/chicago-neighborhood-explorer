@@ -53,22 +53,23 @@ The project emphasizes production-style software engineering practices:
 
 ## Architecture
 
-![Architecture](docs/images/architecture.png)
+```mermaid
+flowchart TD
+    A[Chicago Open Data<br/>Crime · Housing · Transit · 311]
+    B[Processed CSV Import<br/>Railway Demo Dataset]
+    C[Railway MySQL<br/>Snapshot Tables]
+    D[FastAPI Backend<br/>REST API + OpenAPI Docs]
+    E[Streamlit Frontend<br/>Interactive Query Dashboard]
+    F[GitHub Actions<br/>pytest CI]
 
-```text
-Browser
-  |
-  v
-Streamlit Frontend
-  |
-  | REST API
-  v
-FastAPI Backend
-  |
-  | SQL Views / Queries
-  v
-MySQL Analytics Database
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    F --> D
 ```
+
+The deployed demo uses a lightweight processed dataset imported into Railway MySQL, while the benchmark report documents performance optimization over the full local 2.1M+ source-row database.
 
 The frontend is intentionally decoupled from the database. All data access flows
 through the FastAPI backend, which owns MySQL connection management and query
