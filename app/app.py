@@ -7,6 +7,8 @@ details live in nearby modules:
     api_client.py    FastAPI HTTP client helper
 """
 
+import traceback
+
 import streamlit as st
 
 from api_client import (
@@ -30,6 +32,13 @@ def execute_query(query_key, params):
         pandas.DataFrame: Results returned by the API.
     """
     return run_query(query_key, params)
+
+
+def render_query_results(results):
+    """Render query results with a Streamlit version-compatible layout."""
+
+    st.markdown("### Results")
+    st.dataframe(results, use_container_width=True)
 
 
 def show_database_status():
@@ -141,10 +150,11 @@ def show_query_section():
             with st.spinner("Running SQL query..."):
                 results = execute_query(query_key, params)
 
-            st.markdown("### Results")
-            st.dataframe(results, width="stretch")
+            render_query_results(results)
         except Exception as error:
             st.error(f"Query failed: {error}")
+            with st.expander("Traceback"):
+                st.code(traceback.format_exc())
     else:
         st.info("Select parameters, then click Run Query to see results.")
 
