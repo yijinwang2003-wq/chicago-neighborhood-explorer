@@ -33,6 +33,7 @@ report_assets/*.pdf
 *.log
 *.sql.gz
 *.dump
+*_dump.sql
 
 # OS/editor files
 .DS_Store

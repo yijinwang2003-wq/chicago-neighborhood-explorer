@@ -11,8 +11,8 @@ FastAPI · MySQL · Streamlit · Docker · Pytest · GitHub Actions
 Deployment target: Railway.
 
 ```text
-Frontend: TODO - add Railway frontend URL after deployment
-API docs: TODO - add Railway API /docs URL after deployment
+Frontend: TODO
+API Docs: TODO
 ```
 
 ## Project Overview
@@ -187,72 +187,8 @@ http://localhost:8501
 
 ## Railway Deployment
 
-Railway deployment uses two services from the same GitHub repository:
-
-```text
-api       uses /railway.api.toml       -> api/Dockerfile
-frontend  uses /railway.frontend.toml  -> app/Dockerfile
-```
-
-Railway injects a `PORT` variable for each service. Both Dockerfiles and
-Railway config files start their web servers on `0.0.0.0:$PORT`.
-
-### Required Railway Variables
-
-Set these variables on the `api` service:
-
-```text
-MYSQL_HOST
-MYSQL_PORT
-MYSQL_USER
-MYSQL_PASSWORD
-MYSQL_DATABASE
-```
-
-Set this variable on the `frontend` service after the API service has a Railway
-domain:
-
-```text
-API_BASE_URL=https://YOUR-API-SERVICE.up.railway.app
-```
-
-Important: `MYSQL_HOST=127.0.0.1` or `localhost` will not work on Railway,
-because that points to the API container itself. The database host must be
-reachable from Railway, such as a hosted MySQL endpoint, a Railway MySQL
-service, or another secure publicly reachable MySQL host.
-
-### Deployment Steps
-
-1. Push this repository to GitHub.
-2. In Railway, create a new project from the GitHub repository.
-3. Create an `api` service from the repo.
-4. In the API service settings, set the config file path to:
-
-```text
-/railway.api.toml
-```
-
-5. Add the API service variables listed above.
-6. Generate a Railway public domain for the API service.
-7. Create a `frontend` service from the same repo.
-8. In the frontend service settings, set the config file path to:
-
-```text
-/railway.frontend.toml
-```
-
-9. Set the frontend `API_BASE_URL` to the API public URL.
-10. Generate a Railway public domain for the frontend service.
-
-After deployment, verify:
-
-```text
-https://YOUR-API-SERVICE.up.railway.app/health
-https://YOUR-API-SERVICE.up.railway.app/docs
-https://YOUR-FRONTEND-SERVICE.up.railway.app
-```
-
-Use the frontend Railway URL as the portfolio/resume link.
+The full deployment workflow, including Railway MySQL import/export, lives in
+[docs/railway_deployment.md](docs/railway_deployment.md).
 
 ## Testing and CI
 
