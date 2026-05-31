@@ -1,0 +1,10 @@
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "app/Dockerfile"
+
+[deploy]
+startCommand = "streamlit run app/app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true"
+healthcheckPath = "/"
+healthcheckTimeout = 300
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3

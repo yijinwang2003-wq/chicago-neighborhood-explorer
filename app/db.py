@@ -28,14 +28,20 @@ def get_connection():
     # this line is harmless and the app will use the defaults below.
     load_dotenv()
 
+    connection_config = {
+        "host": os.getenv("MYSQL_HOST", "localhost"),
+        "port": int(os.getenv("MYSQL_PORT", "3306")),
+        "user": os.getenv("MYSQL_USER", "root"),
+        "password": os.getenv("MYSQL_PASSWORD", ""),
+        "database": os.getenv("MYSQL_DATABASE", "chicago_neighborhood"),
+    }
+
+    unix_socket = os.getenv("MYSQL_UNIX_SOCKET")
+    if unix_socket:
+        connection_config["unix_socket"] = unix_socket
+
     # mysql.connector.connect returns a live MySQL connection object.
     # That object can later be passed into query functions in queries.py.
-    connection = mysql.connector.connect(
-        host=os.getenv("MYSQL_HOST", "localhost"),
-        port=int(os.getenv("MYSQL_PORT", "3306")),
-        user=os.getenv("MYSQL_USER", "root"),
-        password=os.getenv("MYSQL_PASSWORD", ""),
-        database=os.getenv("MYSQL_DATABASE", "chicago_neighborhood"),
-    )
+    connection = mysql.connector.connect(**connection_config)
 
     return connection

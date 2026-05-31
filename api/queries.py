@@ -49,7 +49,7 @@ def list_neighborhoods(conn: MySQLConnection) -> list[dict[str, Any]]:
         conn,
         f"""
         SELECT {PROFILE_COLUMNS}
-        FROM vw_neighborhood_profile
+        FROM neighborhood_profile_snapshot
         ORDER BY community_name
         """,
     )
@@ -60,7 +60,7 @@ def get_neighborhood(conn: MySQLConnection, community_id: int) -> dict[str, Any]
         conn,
         f"""
         SELECT {PROFILE_COLUMNS}
-        FROM vw_neighborhood_profile
+        FROM neighborhood_profile_snapshot
         WHERE community_id = %s
         """,
         (community_id,),
@@ -115,7 +115,7 @@ def compare_neighborhoods(conn: MySQLConnection, community_ids: Sequence[int]) -
         conn,
         f"""
         SELECT {PROFILE_COLUMNS}
-        FROM vw_neighborhood_profile
+        FROM neighborhood_profile_snapshot
         WHERE community_id IN ({placeholders})
         ORDER BY FIELD(community_id, {placeholders})
         """,
